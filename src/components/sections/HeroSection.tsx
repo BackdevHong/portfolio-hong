@@ -2,6 +2,11 @@ import Image from "next/image";
 import { metrics, profile } from "@/data/portfolio";
 import type { SectionStyles } from "./types";
 
+const profileImageSrc =
+  process.env.GITHUB_PAGES === "true"
+    ? "/portfolio-hong/profile.jpg"
+    : "/profile.jpg";
+
 type HeroSectionProps = {
   styles: SectionStyles;
 };
@@ -25,7 +30,7 @@ export function HeroSection({ styles }: HeroSectionProps) {
       <aside className={styles.profilePanel} aria-label="프로필 요약">
         <div className={styles.profilePhoto}>
           <Image
-            src="/profile.jpg"
+            src={profileImageSrc}
             alt={`${profile.name} 프로필 사진`}
             width={520}
             height={640}
