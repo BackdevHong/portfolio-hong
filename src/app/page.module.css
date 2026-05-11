@@ -177,11 +177,56 @@
   border-color: var(--accent);
 }
 
+.heroAside {
+  display: grid;
+  gap: 18px;
+  align-self: center;
+}
+
+.profilePhotoCard {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background:
+    linear-gradient(135deg, rgba(184, 79, 51, 0.12), rgba(47, 123, 114, 0.14)),
+    #fff;
+  border: 1px solid rgba(228, 222, 211, 0.9);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  animation: panelFloat 820ms ease 80ms both;
+}
+
+.profilePhotoCard::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  content: "";
+  background: linear-gradient(135deg, rgba(184, 79, 51, 0.45), rgba(47, 123, 114, 0.36));
+  border-radius: 8px;
+  opacity: 0.42;
+  transform: translate(10px, 10px);
+}
+
+.profilePhotoCard::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  box-shadow: inset 0 -58px 80px rgba(29, 29, 27, 0.08);
+  pointer-events: none;
+}
+
+.profilePhotoCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
 .profilePanel {
   position: relative;
   display: grid;
   gap: 20px;
-  padding: 18px;
+  padding: 22px;
   background:
     linear-gradient(145deg, rgba(255, 253, 248, 0.98), rgba(255, 248, 235, 0.94)),
     var(--paper);
@@ -190,32 +235,6 @@
   box-shadow: var(--shadow);
   animation: panelFloat 820ms ease 120ms both;
   isolation: isolate;
-}
-
-.profilePhoto {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background:
-    linear-gradient(135deg, rgba(184, 79, 51, 0.12), rgba(47, 123, 114, 0.14)),
-    #fff;
-  border: 1px solid rgba(228, 222, 211, 0.86);
-  border-radius: 8px;
-}
-
-.profilePhoto::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  box-shadow: inset 0 -70px 90px rgba(29, 29, 27, 0.1);
-  pointer-events: none;
-}
-
-.profilePhoto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
 }
 
 .profilePanel::before {
@@ -791,6 +810,7 @@
   }
 
   .heroCopy,
+  .profilePhotoCard,
   .profilePanel,
   .projectCard {
     animation: none;

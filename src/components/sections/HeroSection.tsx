@@ -27,8 +27,8 @@ export function HeroSection({ styles }: HeroSectionProps) {
           </a>
         </div>
       </div>
-      <aside className={styles.profilePanel} aria-label="프로필 요약">
-        <div className={styles.profilePhoto}>
+      <div className={styles.heroAside}>
+        <figure className={styles.profilePhotoCard}>
           <Image
             src={profileImageSrc}
             alt={`${profile.name} 프로필 사진`}
@@ -36,32 +36,34 @@ export function HeroSection({ styles }: HeroSectionProps) {
             height={640}
             priority
           />
-        </div>
-        <div className={styles.profileHeader}>
-          <span>{profile.name}</span>
-          <strong>{profile.role}</strong>
-        </div>
-        <div className={styles.codeWindow} aria-hidden="true">
-          <div className={styles.windowDots}>
-            <span />
-            <span />
-            <span />
+        </figure>
+        <aside className={styles.profilePanel} aria-label="프로필 요약">
+          <div className={styles.profileHeader}>
+            <span>{profile.name}</span>
+            <strong>{profile.role}</strong>
           </div>
-          <pre>{`plugin.register({
+          <div className={styles.codeWindow} aria-hidden="true">
+            <div className={styles.windowDots}>
+              <span />
+              <span />
+              <span />
+            </div>
+            <pre>{`plugin.register({
   stack: ["Java", "React"],
   focus: "Web Full-Stack",
   goal: "Many Money"
 });`}</pre>
-        </div>
-        <div className={styles.metricGrid}>
-          {metrics.map((metric) => (
-            <div className={styles.metric} key={metric.label}>
-              <b>{metric.value}</b>
-              <p>{metric.label}</p>
-            </div>
-          ))}
-        </div>
-      </aside>
+          </div>
+          <div className={styles.metricGrid}>
+            {metrics.map((metric) => (
+              <div className={styles.metric} key={metric.label}>
+                <b>{metric.value}</b>
+                <p>{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
     </section>
   );
 }
