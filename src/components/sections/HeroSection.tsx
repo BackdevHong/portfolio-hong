@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { metrics, profile } from "@/data/portfolio";
 import type { SectionStyles } from "./types";
 
@@ -22,6 +23,15 @@ export function HeroSection({ styles }: HeroSectionProps) {
         </div>
       </div>
       <aside className={styles.profilePanel} aria-label="프로필 요약">
+        <div className={styles.profilePhoto}>
+          <Image
+            src="/profile.jpg"
+            alt={`${profile.name} 프로필 사진`}
+            width={520}
+            height={640}
+            priority
+          />
+        </div>
         <div className={styles.profileHeader}>
           <span>{profile.name}</span>
           <strong>{profile.role}</strong>

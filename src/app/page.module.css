@@ -181,7 +181,7 @@
   position: relative;
   display: grid;
   gap: 20px;
-  padding: 22px;
+  padding: 18px;
   background:
     linear-gradient(145deg, rgba(255, 253, 248, 0.98), rgba(255, 248, 235, 0.94)),
     var(--paper);
@@ -190,6 +190,32 @@
   box-shadow: var(--shadow);
   animation: panelFloat 820ms ease 120ms both;
   isolation: isolate;
+}
+
+.profilePhoto {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(135deg, rgba(184, 79, 51, 0.12), rgba(47, 123, 114, 0.14)),
+    #fff;
+  border: 1px solid rgba(228, 222, 211, 0.86);
+  border-radius: 8px;
+}
+
+.profilePhoto::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  box-shadow: inset 0 -70px 90px rgba(29, 29, 27, 0.1);
+  pointer-events: none;
+}
+
+.profilePhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
 }
 
 .profilePanel::before {
