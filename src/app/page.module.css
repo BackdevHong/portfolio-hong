@@ -482,6 +482,107 @@
   line-height: 1.7;
 }
 
+.youtubeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.youtubeCard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid rgba(228, 222, 211, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(56, 42, 24, 0.07);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.youtubeCard:hover {
+  border-color: rgba(184, 79, 51, 0.32);
+  box-shadow: 0 22px 54px rgba(56, 42, 24, 0.14);
+  transform: translateY(-4px);
+}
+
+.youtubeThumb {
+  position: relative;
+  display: grid;
+  min-height: 220px;
+  padding: 24px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(29, 29, 27, 0.28), rgba(29, 29, 27, 0.82)),
+    linear-gradient(135deg, var(--accent), var(--mint) 58%, var(--gold));
+}
+
+.youtubeThumb::after {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  content: "";
+  background: #fff;
+  clip-path: polygon(32% 22%, 32% 78%, 78% 50%);
+  opacity: 0.92;
+}
+
+.youtubeThumb span {
+  width: fit-content;
+  height: fit-content;
+  padding: 7px 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.youtubeThumb strong {
+  align-self: end;
+  max-width: 220px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.08;
+}
+
+.youtubeBody {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.youtubeMeta {
+  color: var(--accent-strong);
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.youtubeBody h3 {
+  font-size: clamp(23px, 3vw, 30px);
+  line-height: 1.22;
+}
+
+.youtubeBody h3 a {
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 79, 51, 0.32);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.youtubeBody h3 a:hover {
+  color: var(--accent-strong);
+  text-decoration-color: var(--accent);
+}
+
+.youtubeBody p:not(.youtubeMeta) {
+  color: #4e4941;
+  line-height: 1.75;
+}
+
 .timeline {
   display: grid;
   gap: 0;
@@ -624,6 +725,7 @@
   .projectTop,
   .highlightBlock,
   .timelineItem,
+  .youtubeGrid,
   .educationGrid {
     grid-template-columns: 1fr;
   }

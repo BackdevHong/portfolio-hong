@@ -14,6 +14,7 @@ export function Header({ styles }: HeaderProps) {
       <nav className={styles.nav} aria-label="주요 섹션">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#videos">Videos</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>

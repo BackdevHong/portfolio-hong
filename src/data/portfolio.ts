@@ -45,6 +45,15 @@ export type ProjectCategory = {
   tags: string[];
 };
 
+export type YoutubeContent = {
+  title: string;
+  url: string;
+  channel: string;
+  description: string;
+  role: string;
+  tags: string[];
+};
+
 export const projectCategories: ProjectCategory[] = [
   {
     title: "스파르타 유틸리티",
@@ -98,6 +107,27 @@ export const projectCategories: ProjectCategory[] = [
       "관리자 페이지, 프리랜서 신청 승인/거절, 서비스 활성화 토글, 마이페이지, 주문 상태 관리 등 운영 흐름까지 포함했습니다.",
     ],
     tags: ["React", "Vite", "TypeScript", "Express", "Prisma", "MySQL"],
+  },
+];
+
+export const youtubeContents: YoutubeContent[] = [
+  {
+    title: "룬 오브 워 제로",
+    url: "https://www.youtube.com/playlist?list=PLZ0reQtOJanvuo-aWy1stcWZQ_btuxUVU",
+    channel: "악어 콘텐츠",
+    description:
+      "대규모 마인크래프트 콘텐츠 룬 오브 워 제로의 플레이 영상 모음입니다. Paper API 기반 플러그인 개발과 데이터/캐싱 구조 구현 경험을 실제 콘텐츠 결과물로 확인할 수 있습니다.",
+    role: "외주 개발자",
+    tags: ["Paper API", "Java", "콘텐츠 시스템"],
+  },
+  {
+    title: "마크에이지 리턴즈 3",
+    url: "https://www.youtube.com/playlist?list=PLZ0reQtOJansVG_eXD_mMKaE7ql3m-Msr",
+    channel: "악어 콘텐츠",
+    description:
+      "경매, 국가, 신호기, 직업/스탯 등 다양한 서버 시스템이 들어간 통합 RPG 콘텐츠입니다. 대형 서버 운영에 필요한 기능 설계와 구현 경험을 영상으로 확인할 수 있습니다.",
+    role: "플러그인 개발자",
+    tags: ["Java", "RPG 시스템", "서버 운영 기능"],
   },
 ];
 

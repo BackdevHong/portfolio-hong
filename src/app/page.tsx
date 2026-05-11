@@ -5,6 +5,7 @@ import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { YoutubeSection } from "@/components/sections/YoutubeSection";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <HeroSection styles={styles} />
         <AboutSection styles={styles} />
         <ProjectsSection styles={styles} />
+        <YoutubeSection styles={styles} />
         <ExperienceSection styles={styles} />
         <EducationSection styles={styles} />
         <ContactSection styles={styles} />
