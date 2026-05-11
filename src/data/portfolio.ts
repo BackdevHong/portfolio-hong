@@ -117,7 +117,7 @@ export const youtubeContents: YoutubeContent[] = [
     channel: "악어 콘텐츠",
     description:
       "대규모 마인크래프트 콘텐츠 룬 오브 워 제로의 플레이 영상 모음입니다. Paper API 기반 플러그인 개발과 데이터/캐싱 구조 구현 경험을 실제 콘텐츠 결과물로 확인할 수 있습니다.",
-    role: "외주 개발자",
+    role: "플러그인 개발자",
     tags: ["Paper API", "Java", "콘텐츠 시스템"],
   },
   {
