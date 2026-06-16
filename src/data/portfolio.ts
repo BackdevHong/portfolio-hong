@@ -96,7 +96,7 @@ export const projectCategories: ProjectCategory[] = [
   },
   {
     title: "크런치(Crunch)",
-    url: "https://github.com/BackdevHong/crunch",
+    url: "https://crunch.it.kr",
     plugins: [],
     description:
       "프리랜서와 클라이언트를 연결하는 서비스 중개 플랫폼입니다. 클라이언트는 프로젝트를 의뢰하거나 서비스를 구매할 수 있고, 프리랜서는 자신을 홍보하고 제안서를 보내거나 주문을 처리할 수 있습니다.",
