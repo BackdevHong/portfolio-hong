@@ -31,6 +31,14 @@ export default {
       }
     }
 
-    return env.ASSETS.fetch(assetRequest(request, "/404.html"));
+    const notFoundResponse = await env.ASSETS.fetch(
+      assetRequest(request, "/404.html"),
+    );
+
+    return new Response(notFoundResponse.body, {
+      status: 404,
+      statusText: "Not Found",
+      headers: notFoundResponse.headers,
+    });
   },
 };
