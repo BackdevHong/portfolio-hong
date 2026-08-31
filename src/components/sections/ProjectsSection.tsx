@@ -1,4 +1,5 @@
 import { projects } from "@/data/portfolio";
+import { withBasePath } from "@/lib/site-url";
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
@@ -73,7 +74,7 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
                     <span>Actual screen / 01</span>
                   </div>
                   <Image
-                    src={project.screenshots[0].src}
+                    src={withBasePath(project.screenshots[0].src)}
                     alt=""
                     width={1280}
                     height={720}

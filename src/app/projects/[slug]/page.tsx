@@ -1,4 +1,5 @@
 import { getProject, projects } from "@/data/portfolio";
+import { absoluteSiteUrl, withBasePath } from "@/lib/site-url";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,7 +32,7 @@ export async function generateMetadata({
       images: project.screenshots?.[0]
         ? [
             {
-              url: project.screenshots[0].src,
+              url: absoluteSiteUrl(project.screenshots[0].src),
               width: 1280,
               height: 720,
               alt: project.screenshots[0].alt,
@@ -43,7 +44,9 @@ export async function generateMetadata({
       card: "summary",
       title: `${project.title} | 홍인성 포트폴리오`,
       description: project.summary,
-      images: project.screenshots?.[0] ? [project.screenshots[0].src] : [],
+      images: project.screenshots?.[0]
+        ? [absoluteSiteUrl(project.screenshots[0].src)]
+        : [],
     },
   };
 }
@@ -174,7 +177,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         <p>{project.title}</p>
                       </div>
                       <Image
-                        src={screenshot.src}
+                        src={withBasePath(screenshot.src)}
                         alt={screenshot.alt}
                         width={1280}
                         height={720}

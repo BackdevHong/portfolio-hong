@@ -1,4 +1,5 @@
 import { metrics, profile } from "@/data/portfolio";
+import { withBasePath } from "@/lib/site-url";
 import Image from "next/image";
 import type { SectionStyles } from "./types";
 
@@ -39,7 +40,7 @@ export function HeroSection({ styles }: HeroSectionProps) {
         <aside className={styles.identityCard} aria-label="홍인성 프로필">
           <div className={styles.portraitFrame}>
             <Image
-              src="/profile.jpg"
+              src={withBasePath("/profile.jpg")}
               width={413}
               height={531}
               alt="홍인성 프로필 사진"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { absoluteSiteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hong-inseong-portfolio.ghddls7979.chatgpt.site"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "홍인성 | Web Developer",
     template: "%s | 홍인성 포트폴리오",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     images: [
       {
-        url: "/og.png",
+        url: absoluteSiteUrl("/og.png"),
         width: 1730,
         height: 909,
         alt: "홍인성 웹 개발자 포트폴리오",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "홍인성 | Web Developer",
     description: "웹과 데이터 프로젝트를 만들고, 해결 과정을 기록합니다.",
-    images: ["/og.png"],
+    images: [absoluteSiteUrl("/og.png")],
   },
 };
 
