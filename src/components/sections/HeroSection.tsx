@@ -45,7 +45,7 @@ export function HeroSection({ styles }: HeroSectionProps) {
               alt="홍인성 프로필 사진"
               priority
             />
-            <span>HI / 26</span>
+            <span>AGE / 23</span>
           </div>
           <div className={styles.identityCaption}>
             <p>Frontend-focused developer</p>
