@@ -28,6 +28,11 @@ export type Project = {
   sourceNote?: string;
   accent: string;
   accentInk: string;
+  screenshots?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
   liveUrl?: string;
   tags: string[];
   features: string[];
@@ -59,6 +64,13 @@ export const projects: Project[] = [
     liveUrl: "https://crunch.it.kr",
     accent: "#ff6847",
     accentInk: "#11120f",
+    screenshots: [
+      {
+        src: "/projects/crunch/overview.jpg",
+        alt: "크런치 프리랜서 중개 플랫폼 메인 화면",
+        caption: "서비스 탐색과 프리랜서 매칭을 시작하는 크런치 메인 화면",
+      },
+    ],
     tags: ["React 19", "TypeScript", "Express", "Prisma", "MySQL"],
     features: [
       "클라이언트·프리랜서·관리자 역할별 화면과 권한",
@@ -118,6 +130,13 @@ export const projects: Project[] = [
     repository: "https://github.com/BackdevHong/MineNews",
     accent: "#c7f65b",
     accentInk: "#11120f",
+    screenshots: [
+      {
+        src: "/projects/minenews/overview.jpg",
+        alt: "MineNews 주간 데이터 신문 메인 화면",
+        caption: "게임 순위와 지표를 기사 형태로 구성한 MineNews 주간 화면",
+      },
+    ],
     tags: ["React 19", "TypeScript", "Express", "REST API", "Data Normalize"],
     features: [
       "최신·이전 스냅샷의 순위 및 지표 변화 계산",
@@ -178,6 +197,13 @@ export const projects: Project[] = [
     liveUrl: "https://sparta-utility.vercel.app",
     accent: "#3157ff",
     accentInk: "#fffdf7",
+    screenshots: [
+      {
+        src: "/projects/sparta-utility/overview.jpg",
+        alt: "스파르타 유틸리티 작업 시간과 정산 금액 계산 화면",
+        caption: "주차별 영상 시간을 입력해 예상 정산 금액을 확인하는 계산 화면",
+      },
+    ],
     tags: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
     features: [
       "주차와 영상 개수에 따라 입력 폼 동적 생성",

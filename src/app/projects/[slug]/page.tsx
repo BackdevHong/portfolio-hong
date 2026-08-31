@@ -1,5 +1,6 @@
 import { getProject, projects } from "@/data/portfolio";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { CSSProperties } from "react";
@@ -27,13 +28,22 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} | 홍인성 포트폴리오`,
       description: project.summary,
-      images: [],
+      images: project.screenshots?.[0]
+        ? [
+            {
+              url: project.screenshots[0].src,
+              width: 1280,
+              height: 720,
+              alt: project.screenshots[0].alt,
+            },
+          ]
+        : [],
     },
     twitter: {
       card: "summary",
       title: `${project.title} | 홍인성 포트폴리오`,
       description: project.summary,
-      images: [],
+      images: project.screenshots?.[0] ? [project.screenshots[0].src] : [],
     },
   };
 }
@@ -140,6 +150,44 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
         </section>
+
+        {project.screenshots?.length ? (
+          <section
+            className={`${styles.contentSection} ${styles.screenSection}`}
+            aria-labelledby="screen-title"
+          >
+            <div className={styles.sectionLabel}>
+              <span>00</span>
+              <p>Actual screen</p>
+            </div>
+            <div className={styles.sectionContent}>
+              <p className={styles.sectionKicker}>Built &amp; captured</p>
+              <h2 id="screen-title">직접 실행한 프로젝트 화면</h2>
+              <div className={styles.screenGallery}>
+                {project.screenshots.map((screenshot) => (
+                  <figure key={screenshot.src}>
+                    <div className={styles.screenFrame}>
+                      <div className={styles.screenChrome} aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
+                        <p>{project.title}</p>
+                      </div>
+                      <Image
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        width={1280}
+                        height={720}
+                        sizes="(max-width: 720px) 100vw, 78vw"
+                      />
+                    </div>
+                    <figcaption>{screenshot.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className={styles.contentSection} aria-labelledby="features-title">
           <div className={styles.sectionLabel}>

@@ -320,6 +320,77 @@
   border-left: 1px solid var(--ink);
 }
 
+.screenSection {
+  background: var(--canvas);
+}
+
+.screenGallery {
+  display: grid;
+  gap: 34px;
+  margin-top: 56px;
+}
+
+.screenGallery figure {
+  min-width: 0;
+}
+
+.screenFrame {
+  padding: 10px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 16px 16px 0 var(--project-accent);
+  overflow: hidden;
+}
+
+.screenChrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 7px;
+}
+
+.screenChrome > span {
+  width: 8px;
+  height: 8px;
+  background: #6c6e67;
+  border-radius: 50%;
+}
+
+.screenChrome > span:first-child {
+  background: var(--project-accent);
+}
+
+.screenChrome p {
+  margin-left: auto;
+  color: #a9aaa3;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.screenFrame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 13px;
+}
+
+.screenGallery figcaption {
+  margin-top: 20px;
+  padding-left: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
 .featureList li {
   display: grid;
   gap: 64px;

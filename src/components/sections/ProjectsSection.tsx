@@ -1,4 +1,5 @@
 import { projects } from "@/data/portfolio";
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { SectionStyles } from "./types";
@@ -65,19 +66,34 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
                 <span>{project.period}</span>
               </div>
               <strong className={styles.visualTitle}>{project.displayTitle}</strong>
-              <div className={styles.visualPanel}>
-                <div>
-                  <span>Core</span>
-                  <strong>{project.features.length.toString().padStart(2, "0")}</strong>
-                  <small>Features</small>
+              {project.screenshots?.[0] ? (
+                <div className={styles.visualScreenshot}>
+                  <div>
+                    <span>Built project</span>
+                    <span>Actual screen / 01</span>
+                  </div>
+                  <Image
+                    src={project.screenshots[0].src}
+                    alt=""
+                    width={1280}
+                    height={720}
+                  />
                 </div>
-                <div>
-                  <span>Solve</span>
-                  <strong>{project.troubleshooting.length.toString().padStart(2, "0")}</strong>
-                  <small>Cases</small>
+              ) : (
+                <div className={styles.visualPanel}>
+                  <div>
+                    <span>Core</span>
+                    <strong>{project.features.length.toString().padStart(2, "0")}</strong>
+                    <small>Features</small>
+                  </div>
+                  <div>
+                    <span>Solve</span>
+                    <strong>{project.troubleshooting.length.toString().padStart(2, "0")}</strong>
+                    <small>Cases</small>
+                  </div>
+                  <p>{project.tags.slice(0, 3).join(" / ")}</p>
                 </div>
-                <p>{project.tags.slice(0, 3).join(" / ")}</p>
-              </div>
+              )}
               <div className={styles.visualFooter}>
                 <span>{project.category}</span>
                 <span>View project ↗</span>

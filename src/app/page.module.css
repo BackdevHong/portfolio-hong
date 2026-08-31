@@ -561,6 +561,46 @@
   line-height: 1.7;
 }
 
+.projectVisual:has(.visualScreenshot) .visualTitle {
+  margin-top: clamp(34px, 4vw, 58px);
+  font-size: clamp(46px, 5.5vw, 84px);
+}
+
+.visualScreenshot {
+  margin-top: auto;
+  padding: 8px;
+  color: var(--canvas-strong);
+  background: var(--ink);
+  border: 1px solid var(--project-ink);
+  border-radius: 16px;
+  box-shadow: 12px 12px 0 color-mix(in srgb, var(--project-ink) 22%, transparent);
+  overflow: hidden;
+  transform: rotate(-1.5deg);
+}
+
+.visualScreenshot > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 6px 10px;
+  color: #b9bbb2;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.visualScreenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 9px;
+}
+
 .visualFooter {
   margin-top: 32px;
   padding-top: 18px;
@@ -779,6 +819,10 @@
 
   .visualTitle {
     font-size: clamp(56px, 20vw, 100px);
+  }
+
+  .projectVisual:has(.visualScreenshot) .visualTitle {
+    font-size: clamp(48px, 16vw, 82px);
   }
 
   .visualPanel {
