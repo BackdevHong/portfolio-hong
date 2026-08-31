@@ -9,7 +9,7 @@ export const profile = {
 };
 
 export const metrics = [
-  { label: "선별한 웹 프로젝트", value: "04" },
+  { label: "선별한 웹 프로젝트", value: "03" },
   { label: "주요 프론트엔드", value: "React" },
   { label: "관심 영역", value: "Web" },
 ];
@@ -98,64 +98,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "mineinsight",
-    index: "02",
-    title: "MineInsight",
-    category: "Operations Dashboard",
-    period: "2025",
-    role: "Frontend",
-    description:
-      "서버 상태와 플레이어를 한 화면에서 확인하고 운영 명령을 수행할 수 있도록 만든 React 기반 관리 대시보드입니다.",
-    summary: "실시간성·권한·캐시를 고려한 서버 운영 대시보드",
-    repository: "https://github.com/BackdevHong/MineInsight",
-    tags: ["React 19", "TypeScript", "TanStack Query", "React Router"],
-    features: [
-      "TPS·MSPT·CPU·메모리 지표 모니터링",
-      "플레이어 목록·상세·인벤토리 조회",
-      "Kick·Ban·화이트리스트 등 운영 명령",
-      "명령어, 플러그인, 감사 로그와 설정 화면",
-    ],
-    buildPoints: [
-      {
-        title: "데이터 성격에 맞춘 갱신 주기",
-        description:
-          "서버 지표와 플레이어 목록은 주기적으로 갱신하고, 상세 정보와 인벤토리는 선택하거나 요청했을 때만 가져오도록 쿼리를 분리했습니다.",
-      },
-      {
-        title: "서버별 캐시 분리",
-        description:
-          "TanStack Query의 key에 serverId와 player UUID를 포함해 여러 서버와 플레이어 데이터가 같은 캐시에 섞이지 않도록 구성했습니다.",
-      },
-      {
-        title: "운영 권한을 UI에 반영",
-        description:
-          "viewer, operator, admin의 순위를 정의하고 현재 역할에 따라 Kick·Ban 같은 위험 동작을 사용할 수 있도록 제어했습니다.",
-      },
-    ],
-    troubleshooting: [
-      {
-        title: "플레이어를 바꿨는데 이전 인벤토리가 남는 문제",
-        problem:
-          "선택한 플레이어가 바뀐 직후 새 요청이 끝나기 전까지 직전 플레이어의 인벤토리 스냅샷이 화면에 남을 수 있었습니다.",
-        solution:
-          "쿼리 키를 서버와 UUID 단위로 세분화하고, 선택이 바뀌면 해당 서버의 이전 인벤토리 쿼리를 제거한 뒤 사용자가 요청할 때 새 스냅샷을 가져오도록 했습니다.",
-        result:
-          "운영자가 다른 플레이어의 데이터를 현재 선택 대상으로 오인할 가능성을 줄였습니다.",
-      },
-      {
-        title: "모든 데이터를 같은 주기로 요청하는 비효율",
-        problem:
-          "실시간 지표, 플레이어 목록, 상세 정보, 인벤토리는 필요한 최신성이 서로 다른데 모두 짧은 간격으로 요청하면 불필요한 서버 부하가 생깁니다.",
-        solution:
-          "지표와 목록만 설정된 간격으로 폴링하고, 상세는 선택 시에만 요청하며 인벤토리는 수동 조회와 5분 캐시를 적용했습니다.",
-        result:
-          "실시간성이 필요한 정보는 유지하면서 무거운 상세 요청의 횟수를 제한했습니다.",
-      },
-    ],
-  },
-  {
     slug: "minenews",
-    index: "03",
+    index: "02",
     title: "MineNews",
     category: "Data-driven Web",
     period: "2025 — 2026",
@@ -211,7 +155,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sparta-utility",
-    index: "04",
+    index: "03",
     title: "스파르타 유틸리티",
     category: "Work Utility",
     period: "2023",
