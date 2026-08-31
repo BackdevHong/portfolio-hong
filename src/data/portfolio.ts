@@ -18,6 +18,7 @@ export type Project = {
   slug: string;
   index: string;
   title: string;
+  displayTitle: string;
   category: string;
   period: string;
   role: string;
@@ -25,6 +26,8 @@ export type Project = {
   summary: string;
   repository?: string;
   sourceNote?: string;
+  accent: string;
+  accentInk: string;
   liveUrl?: string;
   tags: string[];
   features: string[];
@@ -45,6 +48,7 @@ export const projects: Project[] = [
     slug: "crunch",
     index: "01",
     title: "크런치",
+    displayTitle: "CRUNCH",
     category: "Full-stack Web Service",
     period: "2026",
     role: "Frontend · Backend",
@@ -53,6 +57,8 @@ export const projects: Project[] = [
     summary: "복잡한 역할과 거래 흐름을 하나의 서비스로 연결한 풀스택 프로젝트",
     repository: "https://github.com/BackdevHong/crunch",
     liveUrl: "https://crunch.it.kr",
+    accent: "#ff6847",
+    accentInk: "#11120f",
     tags: ["React 19", "TypeScript", "Express", "Prisma", "MySQL"],
     features: [
       "클라이언트·프리랜서·관리자 역할별 화면과 권한",
@@ -102,6 +108,7 @@ export const projects: Project[] = [
     slug: "minenews",
     index: "02",
     title: "MineNews",
+    displayTitle: "MINE / NEWS",
     category: "Data-driven Web",
     period: "2025 — 2026",
     role: "Frontend · Backend",
@@ -109,6 +116,8 @@ export const projects: Project[] = [
       "수집된 게임 지표를 주간 신문 형태로 보여주는 데이터 웹 프로젝트입니다. 스냅샷 비교, 외부 이미지 API 프록시, 예외 데이터 정규화를 구현했습니다.",
     summary: "서로 다른 형태의 외부 데이터를 안정적인 읽기 경험으로 바꾼 웹 프로젝트",
     repository: "https://github.com/BackdevHong/MineNews",
+    accent: "#c7f65b",
+    accentInk: "#11120f",
     tags: ["React 19", "TypeScript", "Express", "REST API", "Data Normalize"],
     features: [
       "최신·이전 스냅샷의 순위 및 지표 변화 계산",
@@ -158,6 +167,7 @@ export const projects: Project[] = [
     slug: "sparta-utility",
     index: "03",
     title: "스파르타 유틸리티",
+    displayTitle: "UTILITY",
     category: "Work Utility",
     period: "2023",
     role: "Frontend",
@@ -166,6 +176,8 @@ export const projects: Project[] = [
     summary: "반복 정산 업무를 브라우저 계산기로 바꾼 작은 자동화 프로젝트",
     repository: "https://github.com/BackdevHong/sparta_util",
     liveUrl: "https://sparta-utility.vercel.app",
+    accent: "#3157ff",
+    accentInk: "#fffdf7",
     tags: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
     features: [
       "주차와 영상 개수에 따라 입력 폼 동적 생성",
@@ -215,6 +227,7 @@ export const projects: Project[] = [
     slug: "yhs-production-prediction",
     index: "04",
     title: "YHS 공정 완료 시간 예측",
+    displayTitle: "YHS / PREDICT",
     category: "Production Data Prediction",
     period: "2022.06 — 2022.07",
     role: "Main Developer · Team Project",
@@ -223,6 +236,8 @@ export const projects: Project[] = [
     summary: "제조 공정 이력과 근무 일정을 결합해 완료 시간을 예측한 데이터 프로젝트",
     sourceNote:
       "본 프로젝트는 회사 업무로 진행되어 보안 및 기밀 유지 원칙에 따라 소스 코드를 공개하지 않습니다.",
+    accent: "#f6c84d",
+    accentInk: "#11120f",
     tags: ["Python", "Pandas", "NumPy", "MySQL", "PyMySQL"],
     features: [
       "lot 번호를 기준으로 MySQL 공정 이력 조회",

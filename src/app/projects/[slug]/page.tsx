@@ -2,6 +2,7 @@ import { getProject, projects } from "@/data/portfolio";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
 import styles from "./project.module.css";
 
 type ProjectPageProps = {
@@ -47,7 +48,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
   return (
-    <div className={styles.page}>
+    <div
+      className={styles.page}
+      style={
+        {
+          "--project-accent": project.accent,
+          "--project-accent-ink": project.accentInk,
+        } as CSSProperties
+      }
+    >
       <header className={styles.header}>
         <Link className={styles.back} href="/#projects">
           <span aria-hidden="true">←</span> 프로젝트 목록
@@ -68,14 +77,37 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <main>
         <section className={styles.hero}>
-          <div className={styles.heroMeta}>
-            <span>{project.index}</span>
-            <span>{project.category}</span>
-            <span>{project.period}</span>
+          <div className={styles.heroTopline}>
+            <div className={styles.heroMeta}>
+              <span>Project / {project.index}</span>
+              <span>{project.category}</span>
+              <span>{project.period}</span>
+            </div>
+            <span>Case study · Hong Inseong</span>
           </div>
-          <h1>{project.title}</h1>
-          <p className={styles.summary}>{project.summary}</p>
-          <p className={styles.description}>{project.description}</p>
+
+          <h1>
+            <span>{project.displayTitle}</span>
+            <small>{project.title}</small>
+          </h1>
+
+          <div className={styles.heroOverview}>
+            <div className={styles.heroCopy}>
+              <p className={styles.summary}>{project.summary}</p>
+              <p className={styles.description}>{project.description}</p>
+            </div>
+            <div className={styles.heroPoster} aria-hidden="true">
+              <div>
+                <span>Core features</span>
+                <strong>{project.features.length.toString().padStart(2, "0")}</strong>
+              </div>
+              <div>
+                <span>Solved cases</span>
+                <strong>{project.troubleshooting.length.toString().padStart(2, "0")}</strong>
+              </div>
+              <p>{project.tags.slice(0, 3).join(" / ")}</p>
+            </div>
+          </div>
 
           <div className={styles.heroBottom}>
             <dl className={styles.facts}>
@@ -84,7 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <dd>{project.role}</dd>
               </div>
               <div>
-                <dt>Stack</dt>
+                <dt>Core stack</dt>
                 <dd>{project.tags.join(" · ")}</dd>
               </div>
             </dl>
@@ -112,13 +144,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className={styles.contentSection} aria-labelledby="features-title">
           <div className={styles.sectionLabel}>
             <span>01</span>
-            <p>What I built</p>
+            <p>Project brief</p>
           </div>
           <div className={styles.sectionContent}>
+            <p className={styles.sectionKicker}>What I built</p>
             <h2 id="features-title">무엇을 만들었나요?</h2>
             <ul className={styles.featureList}>
-              {project.features.map((feature) => (
-                <li key={feature}>{feature}</li>
+              {project.features.map((feature, index) => (
+                <li key={feature}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  {feature}
+                </li>
               ))}
             </ul>
           </div>
@@ -130,6 +166,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p>Implementation</p>
           </div>
           <div className={styles.sectionContent}>
+            <p className={styles.sectionKicker}>Implementation</p>
             <h2 id="implementation-title">어떻게 구현했나요?</h2>
             <div className={styles.buildGrid}>
               {project.buildPoints.map((point, index) => (
@@ -152,6 +189,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p>Troubleshooting</p>
           </div>
           <div className={styles.sectionContent}>
+            <p className={styles.sectionKicker}>Troubleshooting</p>
             <h2 id="troubleshooting-title">문제를 어떻게 해결했나요?</h2>
             <div className={styles.troubleList}>
               {project.troubleshooting.map((item, index) => (
