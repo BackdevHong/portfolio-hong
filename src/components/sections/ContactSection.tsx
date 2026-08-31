@@ -7,13 +7,20 @@ type ContactSectionProps = {
 
 export function ContactSection({ styles }: ContactSectionProps) {
   return (
-    <section id="contact" className={styles.contact}>
-      <p className={styles.kicker}>Contact</p>
-      <h2>웹, 게임 콘텐츠, 자동화 프로젝트에 관심이 있습니다.</h2>
-      <div className={styles.contactLinks}>
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        <a href={profile.github}>github.com/BackdevHong</a>
+    <footer id="contact" className={styles.contact}>
+      <div>
+        <p className={styles.eyebrow}>Contact</p>
+        <h2>함께 만들 기회를 기다립니다.</h2>
       </div>
-    </section>
+      <div className={styles.contactLinks}>
+        <a href={`mailto:${profile.email}`}>
+          {profile.email} <span aria-hidden="true">↗</span>
+        </a>
+        <a href={profile.github} target="_blank" rel="noreferrer">
+          github.com/BackdevHong <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <p className={styles.copyright}>© 2026 Hong Inseong</p>
+    </footer>
   );
 }

@@ -1,181 +1,273 @@
 export const profile = {
   name: "홍인성",
-  role: "Web Frontend & Backend Developer",
+  role: "Web Developer",
   email: "ghddls0704@kakao.com",
   github: "https://github.com/BackdevHong",
-  heroTitle: "웹과 게임 콘텐츠를 직접 만들며 성장하는 개발자 홍인성입니다.",
+  heroTitle: "사용자가 실제로 쓰는 웹 서비스를 만듭니다.",
   heroDescription:
-    "React와 Vue.js로 웹 프로젝트를 만들고, Java와 Kotlin으로 마인크래프트 콘텐츠 플러그인을 개발해왔습니다. 데이터 전처리와 자동화 경험을 바탕으로 완성도 높은 결과물을 목표로 합니다.",
-  aboutTitle: "프론트엔드와 게임 콘텐츠를 모두 경험한 개발자",
-  aboutDescription:
-    "특성화 고등학교에서 HTML, CSS, JavaScript 기본기를 익힌 뒤 개인 프로젝트와 외주 개발을 통해 실전 경험을 쌓았습니다. 회사 인턴십에서는 MySQL 데이터 전처리와 Python 자동화를 수행했고, 게임 개발 프로젝트에서는 애니메이션, 움직임, 장애물 생성, 씬 체인지 등 핵심 기능 구현을 맡았습니다.",
+    "React를 중심으로 화면을 설계하고, 필요한 경우 Express와 데이터베이스까지 연결합니다. 아래 프로젝트를 누르면 구현 과정과 문제를 해결한 방법을 자세히 볼 수 있습니다.",
 };
 
 export const metrics = [
-  { label: "실무/외주 경험", value: "3+" },
-  { label: "대표 프로젝트", value: "4" },
-  { label: "주요 기술", value: "Web" },
+  { label: "선별한 웹 프로젝트", value: "04" },
+  { label: "주요 프론트엔드", value: "React" },
+  { label: "관심 영역", value: "Web" },
 ];
 
-export const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Vue.js",
-  "Node.js",
-  "ExpressJS",
-  "Java",
-  "Kotlin",
-  "Python",
-  "MySQL",
-  "SQL",
-  "AWS",
-  "Git",
-  "GitHub",
-  "Slack",
-  "Notion",
-];
-
-export type ProjectCategory = {
+export type Project = {
+  slug: string;
+  index: string;
   title: string;
-  url: string;
-  plugins: string[];
-  description: string;
-  highlights: string[];
-  tags: string[];
-};
-
-export type YoutubeContent = {
-  title: string;
-  url: string;
-  channel: string;
-  description: string;
+  category: string;
+  period: string;
   role: string;
+  description: string;
+  summary: string;
+  repository: string;
+  liveUrl?: string;
   tags: string[];
+  features: string[];
+  buildPoints: {
+    title: string;
+    description: string;
+  }[];
+  troubleshooting: {
+    title: string;
+    problem: string;
+    solution: string;
+    result: string;
+  }[];
 };
 
-export const projectCategories: ProjectCategory[] = [
+export const projects: Project[] = [
   {
+    slug: "crunch",
+    index: "01",
+    title: "크런치",
+    category: "Full-stack Web Service",
+    period: "2026",
+    role: "Frontend · Backend",
+    description:
+      "프리랜서와 클라이언트를 연결하는 서비스 중개 플랫폼입니다. 서비스 탐색부터 제안, 주문, 채팅, 관리자 운영까지 실제 서비스 흐름을 구현했습니다.",
+    summary: "복잡한 역할과 거래 흐름을 하나의 서비스로 연결한 풀스택 프로젝트",
+    repository: "https://github.com/BackdevHong/crunch",
+    liveUrl: "https://crunch.it.kr",
+    tags: ["React 19", "TypeScript", "Express", "Prisma", "MySQL"],
+    features: [
+      "클라이언트·프리랜서·관리자 역할별 화면과 권한",
+      "서비스 등록·심사·주문 및 프로젝트 제안 흐름",
+      "실시간 채팅, 알림, 할 일과 회의 제안",
+      "소셜 로그인, 이메일 인증과 결제 연동",
+    ],
+    buildPoints: [
+      {
+        title: "서비스 전체 흐름 설계",
+        description:
+          "React SPA와 Express REST API를 분리하고, 사용자·서비스·프로젝트·제안·주문·채널을 Prisma 모델로 연결했습니다.",
+      },
+      {
+        title: "운영까지 고려한 권한 구조",
+        description:
+          "인증 미들웨어와 역할별 미들웨어를 분리하고 관리자 심사, 사용자 권한 변경, 운영 로그 화면까지 구현했습니다.",
+      },
+      {
+        title: "만료를 전제로 한 인증",
+        description:
+          "짧게 유지되는 Access Token과 HttpOnly Refresh Token 회전 방식을 조합해 로그인 유지와 토큰 보호를 함께 고려했습니다.",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "만료된 토큰으로 요청이 연속 실패하는 문제",
+        problem:
+          "Access Token이 만료되면 사용자가 보고 있던 화면의 API 요청이 401로 실패하고, 각 화면에서 갱신 로직을 따로 처리하면 코드가 중복될 수 있었습니다.",
+        solution:
+          "Axios 응답 인터셉터에서 401을 감지해 Refresh Token으로 새 Access Token을 발급받고 원래 요청을 한 번만 재시도했습니다. 로그인·회원가입·갱신 요청은 재시도 대상에서 제외했습니다.",
+        result:
+          "화면별 인증 예외 처리를 공통 계층으로 모으고, `_retry` 플래그로 무한 재시도 가능성도 차단했습니다.",
+      },
+      {
+        title: "역할과 상태가 늘수록 복잡해지는 접근 제어",
+        problem:
+          "클라이언트, 프리랜서, 관리자마다 가능한 행동이 다르고 서비스 심사와 주문 상태까지 결합되면서 조건이 여러 화면에 흩어질 수 있었습니다.",
+        solution:
+          "서버에서 인증과 관리자 권한 미들웨어를 분리하고, 도메인별 Route·Controller 구조와 Prisma 상태 모델을 기준으로 접근 규칙을 적용했습니다.",
+        result:
+          "프론트 화면 표시 여부와 별개로 서버에서 권한을 다시 검증하는 일관된 운영 흐름을 만들었습니다.",
+      },
+    ],
+  },
+  {
+    slug: "mineinsight",
+    index: "02",
+    title: "MineInsight",
+    category: "Operations Dashboard",
+    period: "2025",
+    role: "Frontend",
+    description:
+      "서버 상태와 플레이어를 한 화면에서 확인하고 운영 명령을 수행할 수 있도록 만든 React 기반 관리 대시보드입니다.",
+    summary: "실시간성·권한·캐시를 고려한 서버 운영 대시보드",
+    repository: "https://github.com/BackdevHong/MineInsight",
+    tags: ["React 19", "TypeScript", "TanStack Query", "React Router"],
+    features: [
+      "TPS·MSPT·CPU·메모리 지표 모니터링",
+      "플레이어 목록·상세·인벤토리 조회",
+      "Kick·Ban·화이트리스트 등 운영 명령",
+      "명령어, 플러그인, 감사 로그와 설정 화면",
+    ],
+    buildPoints: [
+      {
+        title: "데이터 성격에 맞춘 갱신 주기",
+        description:
+          "서버 지표와 플레이어 목록은 주기적으로 갱신하고, 상세 정보와 인벤토리는 선택하거나 요청했을 때만 가져오도록 쿼리를 분리했습니다.",
+      },
+      {
+        title: "서버별 캐시 분리",
+        description:
+          "TanStack Query의 key에 serverId와 player UUID를 포함해 여러 서버와 플레이어 데이터가 같은 캐시에 섞이지 않도록 구성했습니다.",
+      },
+      {
+        title: "운영 권한을 UI에 반영",
+        description:
+          "viewer, operator, admin의 순위를 정의하고 현재 역할에 따라 Kick·Ban 같은 위험 동작을 사용할 수 있도록 제어했습니다.",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "플레이어를 바꿨는데 이전 인벤토리가 남는 문제",
+        problem:
+          "선택한 플레이어가 바뀐 직후 새 요청이 끝나기 전까지 직전 플레이어의 인벤토리 스냅샷이 화면에 남을 수 있었습니다.",
+        solution:
+          "쿼리 키를 서버와 UUID 단위로 세분화하고, 선택이 바뀌면 해당 서버의 이전 인벤토리 쿼리를 제거한 뒤 사용자가 요청할 때 새 스냅샷을 가져오도록 했습니다.",
+        result:
+          "운영자가 다른 플레이어의 데이터를 현재 선택 대상으로 오인할 가능성을 줄였습니다.",
+      },
+      {
+        title: "모든 데이터를 같은 주기로 요청하는 비효율",
+        problem:
+          "실시간 지표, 플레이어 목록, 상세 정보, 인벤토리는 필요한 최신성이 서로 다른데 모두 짧은 간격으로 요청하면 불필요한 서버 부하가 생깁니다.",
+        solution:
+          "지표와 목록만 설정된 간격으로 폴링하고, 상세는 선택 시에만 요청하며 인벤토리는 수동 조회와 5분 캐시를 적용했습니다.",
+        result:
+          "실시간성이 필요한 정보는 유지하면서 무거운 상세 요청의 횟수를 제한했습니다.",
+      },
+    ],
+  },
+  {
+    slug: "minenews",
+    index: "03",
+    title: "MineNews",
+    category: "Data-driven Web",
+    period: "2025 — 2026",
+    role: "Frontend · Backend",
+    description:
+      "수집된 게임 지표를 주간 신문 형태로 보여주는 데이터 웹 프로젝트입니다. 스냅샷 비교, 외부 이미지 API 프록시, 예외 데이터 정규화를 구현했습니다.",
+    summary: "서로 다른 형태의 외부 데이터를 안정적인 읽기 경험으로 바꾼 웹 프로젝트",
+    repository: "https://github.com/BackdevHong/MineNews",
+    tags: ["React 19", "TypeScript", "Express", "REST API", "Data Normalize"],
+    features: [
+      "최신·이전 스냅샷의 순위 및 지표 변화 계산",
+      "게임별 헤드라인과 기사형 상세 콘텐츠",
+      "외부 썸네일 API 프록시와 메모리 캐시",
+      "필드 누락에 대응하는 클라이언트 데이터 정규화",
+    ],
+    buildPoints: [
+      {
+        title: "데이터를 읽기 경험으로 변환",
+        description:
+          "원본 지표를 그대로 나열하지 않고 헤드라인, 기사, 주요 수치와 순위표로 재구성해 주간 신문처럼 탐색할 수 있게 만들었습니다.",
+      },
+      {
+        title: "스냅샷 비교 API",
+        description:
+          "파일명 날짜를 기준으로 최신과 이전 스냅샷을 찾고 universeId로 매칭해 접속자·방문·즐겨찾기·선호도 변화를 계산했습니다.",
+      },
+      {
+        title: "외부 API 경계 분리",
+        description:
+          "브라우저가 외부 썸네일 API를 직접 호출하지 않도록 Express 프록시를 두고, 다수 ID를 한 번에 요청하도록 묶었습니다.",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "스냅샷마다 필드 형태가 달라 화면이 깨지는 문제",
+        problem:
+          "수집 시점에 따라 숫자가 문자열로 오거나 일부 필드가 누락될 수 있어, 화면 컴포넌트가 원본 데이터를 바로 사용하면 예외 처리가 반복됐습니다.",
+        solution:
+          "unknown 값을 문자열·숫자·배열·객체로 안전하게 변환하는 정규화 계층을 만들고, 기사에 지표가 없으면 top5 데이터에서 보완하도록 했습니다.",
+        result:
+          "UI는 하나의 안정된 Snapshot 타입만 다루게 되어 누락 데이터가 있어도 나머지 기사를 계속 표시할 수 있습니다.",
+      },
+      {
+        title: "외부 썸네일 요청의 지연과 반복 호출",
+        problem:
+          "각 카드가 외부 API를 직접 호출하면 CORS와 네트워크 오류의 영향을 받고 같은 이미지 정보를 반복 요청하게 됩니다.",
+        solution:
+          "서버 프록시에서 universeId를 묶어 호출하고 결과를 30분 동안 메모리에 보관했습니다. 응답에는 브라우저 캐시 지시자도 함께 설정했습니다.",
+        result:
+          "외부 API 의존성을 서버 한곳으로 모으고 동일한 썸네일 요청 수를 줄였습니다.",
+      },
+    ],
+  },
+  {
+    slug: "sparta-utility",
+    index: "04",
     title: "스파르타 유틸리티",
-    url: "https://github.com/BackdevHong/sparta_util",
-    plugins: [],
+    category: "Work Utility",
+    period: "2023",
+    role: "Frontend",
     description:
-      "스파르타 코딩클럽 업무에서 금액 정산 계산기로 활용하기 위해 제작한 웹 유틸리티 프로젝트입니다. React 기반으로 구성했습니다.",
-    highlights: [
-      "React와 TypeScript를 사용해 브라우저에서 바로 사용할 수 있는 업무 보조 도구를 구현했습니다.",
-      "Redux Toolkit, React Redux, React Router DOM을 도입해 상태 관리와 화면 전환 구조를 갖췄습니다.",
-      "Tailwind CSS를 함께 사용해 빠르게 UI를 구성하고, Vercel 배포까지 연결한 웹 프로젝트입니다.",
+      "영상 편집 업무에서 주차별 작업 시간과 추가금을 빠르게 계산하기 위해 만든 React 기반 업무 보조 도구입니다.",
+    summary: "반복 정산 업무를 브라우저 계산기로 바꾼 작은 자동화 프로젝트",
+    repository: "https://github.com/BackdevHong/sparta_util",
+    liveUrl: "https://sparta-utility.vercel.app",
+    tags: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
+    features: [
+      "주차와 영상 개수에 따라 입력 폼 동적 생성",
+      "시·분·초 단위 영상 길이 입력과 분 단위 환산",
+      "전체 작업 시간과 정산 금액 자동 합산",
+      "추가금 입력과 잘못된 시간 범위 검증",
     ],
-    tags: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Vercel"],
-  },
-  {
-    title: "룬 오브 워 제로",
-    url: "https://www.youtube.com/playlist?list=PLZ0reQtOJanvuo-aWy1stcWZQ_btuxUVU",
-    plugins: [],
-    description:
-      "악어 콘텐츠 팀에서 제작한 대형 마인크래프트 콘텐츠 프로젝트입니다. alchemy, craft, dungeon, guild, party, shop, stat, war 등 기능을 모듈 단위로 나누어 개발했습니다.",
-    highlights: [
-      "Gradle 멀티 모듈 구조로 기능별 플러그인을 분리해 확장성과 유지보수성을 확보했습니다.",
-      "전쟁 시스템에서 신호기/연합 데이터를 캐싱하고 ConcurrentHashMap, CompletableFuture를 활용해 실시간 서버 부하를 줄였습니다.",
-      "LuckPerms, Vault, CMI 등 서버 생태계 플러그인과 연동해 실제 운영 환경의 요구사항을 처리했습니다.",
+    buildPoints: [
+      {
+        title: "실제 업무 규칙을 코드로 전환",
+        description:
+          "주차별 영상 수와 각 영상의 원본 길이를 입력하면 작업 시간 계산식을 적용해 예상 정산 금액을 바로 확인하도록 구현했습니다.",
+      },
+      {
+        title: "동적 입력 상태 관리",
+        description:
+          "주차와 영상 순번을 복합 식별자로 사용해 같은 항목은 갱신하고 새로운 항목만 추가하도록 Redux Toolkit 상태를 구성했습니다.",
+      },
+      {
+        title: "입력 단계에서 오류 차단",
+        description:
+          "음수 입력을 막고 분·초는 59 이하로 제한한 뒤 모든 값을 초 단위로 합산해 계산 기준을 단순화했습니다.",
+      },
     ],
-    tags: ["Java", "Paper API", "Multi-module", "Caching"],
-  },
-  {
-    title: "마크에이지 리턴즈 3",
-    url: "https://www.youtube.com/playlist?list=PLZ0reQtOJansVG_eXD_mMKaE7ql3m-Msr",
-    plugins: [],
-    description:
-      "경매, 국가, 신호기, 직업/스탯, 암시장, 메뉴, 랜덤박스, 월드보더 등 30개 이상의 기능 모듈을 포함한 통합 서버 플러그인입니다.",
-    highlights: [
-      "기능별 패키지와 Module/Service/Command/Listener 구조로 대규모 기능을 분리했습니다.",
-      "LuckPerms, ProtocolLib 연동과 관리자 명령 체계를 통해 운영자가 직접 설정 가능한 시스템을 만들었습니다.",
-      "GUI 기반 상호작용과 이벤트 리스너를 함께 설계해 사용자 경험과 서버 운영 흐름을 동시에 고려했습니다.",
+    troubleshooting: [
+      {
+        title: "동적으로 늘어나는 입력값의 합계가 중복되는 문제",
+        problem:
+          "주차와 영상 입력 폼이 계속 추가되는 구조에서 변경할 때마다 값을 배열에 새로 넣으면 같은 영상의 시간이 중복 합산될 수 있습니다.",
+        solution:
+          "Redux 상태에서 먼저 주차를 찾고, 그 안에서 영상 순번을 다시 찾아 기존 항목이면 time만 교체하고 없을 때만 새 항목을 추가했습니다.",
+        result:
+          "입력 순서와 수정 횟수에 관계없이 각 영상이 합계에 한 번만 반영되도록 만들었습니다.",
+      },
+      {
+        title: "시간 단위가 섞이며 계산식이 복잡해지는 문제",
+        problem:
+          "사용자는 시·분·초를 각각 입력하지만 정산 규칙은 전체 분을 기준으로 계산해야 했습니다.",
+        solution:
+          "입력값을 초 단위로 통일한 뒤 분으로 내림 처리하고, 전체 분 합계에 정산 단가와 추가금을 적용했습니다.",
+        result:
+          "표시 형식과 계산 기준을 분리해 계산 로직을 단순하게 유지했습니다.",
+      },
     ],
-    tags: ["Java", "Architecture", "GUI", "Server Ops"],
-  },
-  {
-    title: "크런치(Crunch)",
-    url: "https://crunch.it.kr",
-    plugins: [],
-    description:
-      "프리랜서와 클라이언트를 연결하는 서비스 중개 플랫폼입니다. 클라이언트는 프로젝트를 의뢰하거나 서비스를 구매할 수 있고, 프리랜서는 자신을 홍보하고 제안서를 보내거나 주문을 처리할 수 있습니다.",
-    highlights: [
-      "React 19와 Vite 기반 SPA, Express와 Prisma 기반 REST API를 분리한 모노레포 구조로 프론트엔드와 백엔드를 함께 설계했습니다.",
-      "JWT Access Token과 HttpOnly Refresh Token 회전 방식, bcryptjs 비밀번호 해싱, 역할 기반 권한(client, freelancer, admin)을 구현했습니다.",
-      "Prisma와 MySQL로 User, Freelancer, Service, Project, Order, Review, Message 등 실제 서비스 도메인 모델을 설계했습니다.",
-      "관리자 페이지, 프리랜서 신청 승인/거절, 서비스 활성화 토글, 마이페이지, 주문 상태 관리 등 운영 흐름까지 포함했습니다.",
-    ],
-    tags: ["React", "Vite", "TypeScript", "Express", "Prisma", "MySQL"],
   },
 ];
 
-export const youtubeContents: YoutubeContent[] = [
-  {
-    title: "룬 오브 워 제로",
-    url: "https://www.youtube.com/playlist?list=PLZ0reQtOJanvuo-aWy1stcWZQ_btuxUVU",
-    channel: "악어 콘텐츠",
-    description:
-      "대규모 마인크래프트 콘텐츠 룬 오브 워 제로의 플레이 영상 모음입니다. Paper API 기반 플러그인 개발과 데이터/캐싱 구조 구현 경험을 실제 콘텐츠 결과물로 확인할 수 있습니다.",
-    role: "플러그인 개발자",
-    tags: ["Paper API", "Java", "콘텐츠 시스템"],
-  },
-  {
-    title: "마크에이지 리턴즈 3",
-    url: "https://www.youtube.com/playlist?list=PLZ0reQtOJansVG_eXD_mMKaE7ql3m-Msr",
-    channel: "악어 콘텐츠",
-    description:
-      "경매, 국가, 신호기, 직업/스탯 등 다양한 서버 시스템이 들어간 통합 RPG 콘텐츠입니다. 대형 서버 운영에 필요한 기능 설계와 구현 경험을 영상으로 확인할 수 있습니다.",
-    role: "플러그인 개발자",
-    tags: ["Java", "RPG 시스템", "서버 운영 기능"],
-  },
-];
-
-export const experiences = [
-  {
-    role: "인턴",
-    company: "연합시스템",
-    period: "2021.08 - 2023.01",
-    description:
-      "베어링 기계 데이터를 MySQL에서 전처리하고, Python 기반 자동화로 반복 작업을 줄였습니다. 이상 데이터 탐지와 정제 업무도 함께 수행했습니다.",
-  },
-  {
-    role: "영상 편집자(컷 편집 + 자막 편집)",
-    company: "스파르타 코딩클럽",
-    period: "2023.07 - 2025.08",
-    description:
-      "스파르타 코딩클럽에서 제공하는 각종 강의 영상을 Vrew라는 AI 자막 편집 도구를 사용해 컷 편집과 자막 편집을 담당하였습니다.",
-  },
-  {
-    role: "외주 개발자",
-    company: "크리에이터 잠뜰 콘텐츠 팀",
-    period: "2023.03 - 2023.08",
-    description:
-      "마인크래프트 서버 플러그인 개발과 콘텐츠 기획을 담당했습니다. Java, Kotlin, Spigot API를 활용해 영상 콘텐츠 제작에 필요한 기능을 구현했습니다.",
-  },
-  {
-    role: "외주 개발자",
-    company: "크리에이터 악어 콘텐츠 팀",
-    period: "2025.01 - 현재",
-    description:
-      "Paper API와 SQLite3를 활용해 마인크래프트 콘텐츠 룬 오브 워 제로를 제작하며 데이터 저장과 캐싱을 다루고 있습니다.",
-  },
-];
-
-export const education = [
-  {
-    school: "인평자동차고등학교",
-    period: "2020.03 - 2022.12",
-    detail: "자동차 IT과 졸업",
-  },
-  {
-    school: "가천대학교",
-    period: "2023.03 - 재학 중",
-    detail: "게임/영상학과",
-  },
-  {
-    school: "일학습병행 자격증",
-    period: "2022.12",
-    detail: "SW개발 L3",
-  },
-];
+export function getProject(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}

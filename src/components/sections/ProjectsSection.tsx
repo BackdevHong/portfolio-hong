@@ -1,4 +1,5 @@
-import { projectCategories } from "@/data/portfolio";
+import { projects } from "@/data/portfolio";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { SectionStyles } from "./types";
 
@@ -8,63 +9,45 @@ type ProjectsSectionProps = {
 
 export function ProjectsSection({ styles }: ProjectsSectionProps) {
   return (
-    <section id="projects" className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.kicker}>Projects</p>
-        <h2>Selected Projects</h2>
+    <section id="projects" className={styles.projects}>
+      <div className={styles.sectionHeading}>
+        <div>
+          <p className={styles.eyebrow}>Selected work</p>
+          <h2>웹 프로젝트</h2>
+        </div>
         <p>
-          웹 서비스와 대형 게임 콘텐츠 프로젝트를 중심으로, 코드에서 확인한
-          강점을 취업 포인트로 정리했습니다.
+          GitHub에서 진행한 React 중심 프로젝트입니다. 카드를 누르면 구현 내용과
+          트러블슈팅을 볼 수 있습니다.
         </p>
       </div>
-      <div className={styles.projectList}>
-        {projectCategories.map((project, index) => (
-          <article
+
+      <div className={styles.projectGrid}>
+        {projects.map((project, index) => (
+          <Link
             className={styles.projectCard}
-            key={project.title}
+            href={`/projects/${project.slug}`}
+            key={project.slug}
             style={{ "--index": index } as CSSProperties}
+            aria-label={`${project.title} 상세 보기`}
           >
-            <div className={styles.projectTop}>
-              <div>
-                <span className={styles.projectNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3>
-                  {project.url ? (
-                    <a
-                      className={styles.projectTitleLink}
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.title}
-                    </a>
-                  ) : (
-                    project.title
-                  )}
-                </h3>
-                {project.plugins.length > 0 ? (
-                  <p className={styles.pluginList}>
-                    {project.plugins.join(" · ")}
-                  </p>
-                ) : null}
-              </div>
-              <ul className={styles.tagList} aria-label={`${project.title} 기술`}>
-                {project.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
+            <div className={styles.projectMeta}>
+              <span>{project.index}</span>
+              <span>{project.category}</span>
+              <span>{project.period}</span>
             </div>
-            <p className={styles.projectDescription}>{project.description}</p>
-            <div className={styles.highlightBlock}>
-              <strong>취업 포인트</strong>
-              <ul className={styles.highlights}>
-                {project.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
+            <div className={styles.projectBody}>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
             </div>
-          </article>
+            <ul className={styles.tagList} aria-label={`${project.title} 기술 스택`}>
+              {project.tags.map((tag) => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+            <span className={styles.cardLink}>
+              프로젝트 자세히 보기 <span aria-hidden="true">↗</span>
+            </span>
+          </Link>
         ))}
       </div>
     </section>

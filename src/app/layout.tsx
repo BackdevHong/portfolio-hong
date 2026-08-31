@@ -13,8 +13,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "홍인성 | Portfolio",
-  description: "프론트엔드와 게임 콘텐츠 개발을 다루는 홍인성의 포트폴리오입니다.",
+  metadataBase: new URL("https://backdevhong.github.io/portfolio-hong"),
+  title: {
+    default: "홍인성 | Web Developer",
+    template: "%s | 홍인성 포트폴리오",
+  },
+  description:
+    "React 기반 웹 프로젝트와 구현 과정, 트러블슈팅을 정리한 홍인성의 포트폴리오입니다.",
+  openGraph: {
+    title: "홍인성 | Web Developer",
+    description: "React로 만들고, 해결 과정을 기록합니다.",
+    type: "website",
+    locale: "ko_KR",
+    images: [
+      {
+        url: "https://backdevhong.github.io/portfolio-hong/og.png",
+        width: 1730,
+        height: 909,
+        alt: "홍인성 웹 개발자 포트폴리오",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "홍인성 | Web Developer",
+    description: "React로 만들고, 해결 과정을 기록합니다.",
+    images: ["https://backdevhong.github.io/portfolio-hong/og.png"],
+  },
 };
 
 export default function RootLayout({

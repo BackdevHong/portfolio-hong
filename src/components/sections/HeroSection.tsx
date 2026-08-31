@@ -1,11 +1,5 @@
-import Image from "next/image";
-import { metrics, profile } from "@/data/portfolio";
+import { profile } from "@/data/portfolio";
 import type { SectionStyles } from "./types";
-
-const profileImageSrc =
-  process.env.GITHUB_PAGES === "true"
-    ? "/portfolio-hong/profile.jpg"
-    : "/profile.jpg";
 
 type HeroSectionProps = {
   styles: SectionStyles;
@@ -13,57 +7,46 @@ type HeroSectionProps = {
 
 export function HeroSection({ styles }: HeroSectionProps) {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroCopy}>
-        <p className={styles.kicker}>Developer Portfolio</p>
-        <h1>{profile.heroTitle}</h1>
+    <section className={styles.hero} aria-labelledby="hero-title">
+      <div className={styles.heroIntro}>
+        <p className={styles.eyebrow}>Hong Inseong · Portfolio 2026</p>
+        <h1 id="hero-title">{profile.heroTitle}</h1>
         <p className={styles.lead}>{profile.heroDescription}</p>
         <div className={styles.actions}>
           <a className={styles.primary} href="#projects">
-            프로젝트 보기
+            프로젝트 보기 <span aria-hidden="true">↓</span>
           </a>
-          <a className={styles.secondary} href={`mailto:${profile.email}`}>
-            연락하기
+          <a
+            className={styles.secondary}
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub 열기 <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
-      <div className={styles.heroAside}>
-        <figure className={styles.profilePhotoCard}>
-          <Image
-            src={profileImageSrc}
-            alt={`${profile.name} 프로필 사진`}
-            width={520}
-            height={640}
-            priority
-          />
-        </figure>
-        <aside className={styles.profilePanel} aria-label="프로필 요약">
-          <div className={styles.profileHeader}>
-            <span>{profile.name}</span>
-            <strong>{profile.role}</strong>
-          </div>
-          <div className={styles.codeWindow} aria-hidden="true">
-            <div className={styles.windowDots}>
-              <span />
-              <span />
-              <span />
-            </div>
-            <pre>{`plugin.register({
-  stack: ["Java", "React"],
-  focus: "Web Full-Stack",
-  goal: "Many Money"
-});`}</pre>
-          </div>
-          <div className={styles.metricGrid}>
-            {metrics.map((metric) => (
-              <div className={styles.metric} key={metric.label}>
-                <b>{metric.value}</b>
-                <p>{metric.label}</p>
-              </div>
-            ))}
-          </div>
-        </aside>
-      </div>
+
+      <aside className={styles.heroNote} aria-label="개발 방향">
+        <p>How I work</p>
+        <ol>
+          <li>
+            <span>01</span>
+            <strong>문제를 작게 나눕니다.</strong>
+          </li>
+          <li>
+            <span>02</span>
+            <strong>동작하는 웹으로 만듭니다.</strong>
+          </li>
+          <li>
+            <span>03</span>
+            <strong>해결 과정을 기록합니다.</strong>
+          </li>
+        </ol>
+        <div className={styles.stackLine}>
+          React · TypeScript · Node.js
+        </div>
+      </aside>
     </section>
   );
 }
