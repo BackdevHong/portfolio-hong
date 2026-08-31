@@ -44,7 +44,7 @@ export function HeroSection({ styles }: HeroSectionProps) {
           </li>
         </ol>
         <div className={styles.stackLine}>
-          React · TypeScript · Node.js
+          React · TypeScript · Python · MySQL
         </div>
       </aside>
     </section>

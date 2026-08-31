@@ -13,10 +13,10 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
       <div className={styles.sectionHeading}>
         <div>
           <p className={styles.eyebrow}>Selected work</p>
-          <h2>웹 프로젝트</h2>
+          <h2>선별 프로젝트</h2>
         </div>
         <p>
-          GitHub에서 진행한 React 중심 프로젝트입니다. 카드를 누르면 구현 내용과
+          GitHub에서 진행한 웹·데이터 프로젝트입니다. 카드를 누르면 구현 내용과
           트러블슈팅을 볼 수 있습니다.
         </p>
       </div>
