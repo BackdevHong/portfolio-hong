@@ -16,7 +16,7 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
           <h2>선별 프로젝트</h2>
         </div>
         <p>
-          GitHub에서 진행한 웹·데이터 프로젝트입니다. 카드를 누르면 구현 내용과
+          직접 진행한 웹·데이터 프로젝트입니다. 카드를 누르면 구현 내용과
           트러블슈팅을 볼 수 있습니다.
         </p>
       </div>

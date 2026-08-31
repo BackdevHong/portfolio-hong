@@ -32,6 +32,15 @@
   color: var(--accent);
 }
 
+.privateLabel {
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
 .hero {
   padding: clamp(72px, 10vw, 140px) var(--page-x) clamp(60px, 8vw, 104px);
   background:
@@ -146,6 +155,28 @@
 .actions a:hover {
   background: var(--accent);
   border-color: var(--accent);
+}
+
+.sourceNotice {
+  display: grid;
+  gap: 8px;
+  max-width: 430px;
+  padding: 16px 18px;
+  color: var(--muted);
+  background: var(--canvas-strong);
+  border: 1px solid var(--line-strong);
+  font-size: 13px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.sourceNotice span {
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .contentSection {
@@ -390,6 +421,11 @@
   }
 
   .actions a {
+    width: 100%;
+  }
+
+  .sourceNotice {
+    max-width: none;
     width: 100%;
   }
 

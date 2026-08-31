@@ -52,14 +52,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <Link className={styles.back} href="/#projects">
           <span aria-hidden="true">←</span> 프로젝트 목록
         </Link>
-        <a
-          className={styles.headerGithub}
-          href={project.repository}
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub <span aria-hidden="true">↗</span>
-        </a>
+        {project.repository ? (
+          <a
+            className={styles.headerGithub}
+            href={project.repository}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <span aria-hidden="true">↗</span>
+          </a>
+        ) : (
+          <span className={styles.privateLabel}>Company project · Source private</span>
+        )}
       </header>
 
       <main>
@@ -85,13 +89,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </dl>
             <div className={styles.actions}>
-              <a href={project.repository} target="_blank" rel="noreferrer">
-                소스 코드 <span aria-hidden="true">↗</span>
-              </a>
+              {project.repository ? (
+                <a href={project.repository} target="_blank" rel="noreferrer">
+                  소스 코드 <span aria-hidden="true">↗</span>
+                </a>
+              ) : null}
               {project.liveUrl ? (
                 <a href={project.liveUrl} target="_blank" rel="noreferrer">
                   사이트 보기 <span aria-hidden="true">↗</span>
                 </a>
+              ) : null}
+              {project.sourceNote ? (
+                <p className={styles.sourceNotice}>
+                  <span>Source access</span>
+                  {project.sourceNote}
+                </p>
               ) : null}
             </div>
           </div>

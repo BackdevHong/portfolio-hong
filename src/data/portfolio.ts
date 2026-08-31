@@ -23,7 +23,8 @@ export type Project = {
   role: string;
   description: string;
   summary: string;
-  repository: string;
+  repository?: string;
+  sourceNote?: string;
   liveUrl?: string;
   tags: string[];
   features: string[];
@@ -220,7 +221,8 @@ export const projects: Project[] = [
     description:
       "MySQL에 쌓인 제조 공정 이력을 lot 단위로 불러와 유휴 시간과 가공 시간을 분석하고, 근무 시간·휴게 시간·추가 근무를 반영해 예상 완료 시간을 계산하는 Python 프로젝트입니다.",
     summary: "제조 공정 이력과 근무 일정을 결합해 완료 시간을 예측한 데이터 프로젝트",
-    repository: "https://github.com/KIMTAEKJUN/yhs",
+    sourceNote:
+      "본 프로젝트는 회사 업무로 진행되어 보안 및 기밀 유지 원칙에 따라 소스 코드를 공개하지 않습니다.",
     tags: ["Python", "Pandas", "NumPy", "MySQL", "PyMySQL"],
     features: [
       "lot 번호를 기준으로 MySQL 공정 이력 조회",
