@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "프리랜서와 클라이언트를 연결하는 서비스 중개 플랫폼입니다. 서비스 탐색부터 제안, 주문, 채팅, 관리자 운영까지 실제 서비스 흐름을 구현했습니다.",
     summary: "복잡한 역할과 거래 흐름을 하나의 서비스로 연결한 풀스택 프로젝트",
     repository: "https://github.com/BackdevHong/crunch",
-    liveUrl: "https://crunch.it.kr",
+    liveUrl: "https://crunch-project-demo.ghddls7979.chatgpt.site",
     accent: "#ff6847",
     accentInk: "#11120f",
     screenshots: [
