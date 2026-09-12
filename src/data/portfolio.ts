@@ -9,7 +9,7 @@ export const profile = {
 };
 
 export const metrics = [
-  { label: "선별한 프로젝트", value: "04" },
+  { label: "선별한 프로젝트", value: "05" },
   { label: "주요 프론트엔드", value: "React" },
   { label: "관심 영역", value: "Web" },
 ];
@@ -315,6 +315,85 @@ export const projects: Project[] = [
           "이력이 한 건이면 빈 결과를 반환해 다음 누적 단계로 넘기고, 2~6건은 평균값을 사용하며 그보다 많을 때는 사분위 구간을 기준으로 대표 시간을 계산했습니다.",
         result:
           "불충분한 데이터로 예측을 강행하지 않고 누적 데이터 규모에 맞춰 계산 방식을 적용했습니다.",
+      },
+    ],
+  },
+  {
+    slug: "medisense",
+    index: "05",
+    title: "MediSense",
+    displayTitle: "MEDI / SENSE",
+    category: "Medical AI Web Service",
+    period: "2026.08 — 2026.09",
+    role: "Full-stack · AI/RAG · Infrastructure (Team)",
+    description:
+      "React와 FastAPI로 구축한 의료 AI 상담 서비스입니다. 문서 OCR·청킹, Jina v4와 Medical BGE-M3의 이중 검색 및 RRF 결합, 의료 LLM 5종 비교·상담, 인증과 관리자 운영 흐름을 구현했습니다.",
+    summary:
+      "의료 문서 수집부터 하이브리드 RAG와 다중 LLM 추론까지 연결한 의료 AI 상담 서비스",
+    sourceNote:
+      "팀 프로젝트로 진행했으며 조직의 비공개 저장소에서 관리되어 소스 코드는 공개하지 않습니다.",
+    liveUrl: "https://medisense.ai.kr",
+    accent: "#55d5e8",
+    accentInk: "#0b1720",
+    screenshots: [
+      {
+        src: "/projects/medisense/overview.png",
+        alt: "MediSense 의료 AI 상담 서비스 메인 화면",
+        caption:
+          "상담 모델을 선택하고 의료 질문을 이어갈 수 있는 MediSense 메인 화면",
+      },
+    ],
+    tags: ["React 19", "TypeScript", "FastAPI", "PostgreSQL · pgvector", "RAG · RRF"],
+    features: [
+      "회원·게스트 상담, 대화 기록과 후속 질문 문맥 유지",
+      "PDF·이미지·Office·텍스트·ZIP OCR 및 청킹·벡터 저장",
+      "Jina v4·Medical BGE-M3 이중 임베딩 검색과 RRF 결합",
+      "Vast.ai 의료 LLM 5종 비교, Cloud Run·Neon·R2 운영",
+    ],
+    buildPoints: [
+      {
+        title: "인증과 사용자 기능",
+        description:
+          "회원가입·로그인·이메일 인증·비밀번호 재설정과 마이페이지를 구현하고, 프로필 이미지는 Cloudflare R2에 저장하도록 연결했습니다.",
+      },
+      {
+        title: "의료 RAG 검색 파이프라인",
+        description:
+          "같은 질문을 Jina v4와 Medical BGE-M3로 각각 임베딩해 pgvector에서 후보를 검색하고, 안정적인 청크 ID를 기준으로 두 순위를 RRF로 결합했습니다.",
+      },
+      {
+        title: "원격 AI와 운영 인프라",
+        description:
+          "Vast.ai에서 동작하는 의료 LLM 5종을 공통 런타임으로 연결하고 Cloud Run, Neon PostgreSQL·pgvector, Cloudflare R2와 메일·도메인 구성을 운영 환경에 맞췄습니다.",
+      },
+    ],
+    troubleshooting: [
+      {
+        title: "자동 확장 환경에서 OCR 작업이 사라지는 문제",
+        problem:
+          "비동기 OCR 작업을 만든 Cloud Run 인스턴스와 상태를 조회하는 인스턴스가 달라지면, 프로세스 메모리에만 있던 작업 정보가 없어져 404 또는 만료 상태가 발생했습니다.",
+        solution:
+          "OCR 작업 상태를 공용 데이터베이스에 저장하도록 전환하고 진행률과 결과를 함께 영속화했습니다. API 시작 전에 필요한 스키마를 준비하고 인스턴스가 달라지는 상황을 테스트했습니다.",
+        result:
+          "인스턴스 교체와 프로세스 재시작 이후에도 작업 상태와 결과가 유지되도록 만들었고, 관련 테스트 65건을 통과했습니다.",
+      },
+      {
+        title: "대용량 RAG 파일이 Cloud Run 요청 한도를 넘는 문제",
+        problem:
+          "대용량 JSON·JSONL·CSV·TXT·ZIP 파일을 API 서버가 직접 받으면 Cloud Run 요청 크기와 메모리 한계 때문에 업로드가 중단될 수 있었습니다.",
+        solution:
+          "서명된 파트 URL을 이용해 브라우저가 Cloudflare R2로 직접 멀티파트 업로드하도록 구성했습니다. 파트 순서·ETag·실제 크기를 검증하고 실패 시 업로드를 정리하도록 처리했습니다.",
+        result:
+          "전체 파일이 Cloud Run을 통과하지 않고도 최대 8GB까지 업로드할 수 있게 되었고, 재시도와 파일 무결성 검증 흐름도 안정화했습니다.",
+      },
+      {
+        title: "짧은 후속 답변에서 증상 문맥이 끊기는 문제",
+        problem:
+          "사용자가 ‘어제부터요’처럼 짧게 답하면 그 문장만으로는 증상을 분류하거나 검색하기 어려워 이전 질문의 의료 문맥이 끊겼습니다.",
+        solution:
+          "최근 대화에서 분류 가능한 증상 질문까지 문맥을 선택해 검색 질의를 재구성하고, 같은 대화 기록을 상담 프롬프트에도 전달하도록 연결했습니다.",
+        result:
+          "후속 질문에서도 직전 증상과 기간을 이어서 해석하면서 오래된 다른 상담 주제가 섞이는 문제를 줄였습니다.",
       },
     ],
   },

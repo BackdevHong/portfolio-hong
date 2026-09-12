@@ -14,7 +14,9 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
     <section id="projects" className={styles.projects}>
       <div className={styles.sectionHeading}>
         <div>
-          <p className={styles.eyebrow}>Selected work · 04 case studies</p>
+          <p className={styles.eyebrow}>
+            Selected work · {projects.length.toString().padStart(2, "0")} case studies
+          </p>
           <h2>
             PROJECT <span>/ INDEX</span>
           </h2>
