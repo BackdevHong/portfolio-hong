@@ -455,6 +455,106 @@
   word-break: keep-all;
 }
 
+.aiSection {
+  background: color-mix(in srgb, var(--project-accent) 10%, var(--canvas-strong));
+}
+
+.aiIntro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  max-width: 940px;
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink);
+}
+
+.aiIntro > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 13px;
+  color: var(--project-accent-ink);
+  background: var(--project-accent);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.aiIntro p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.aiGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 54px;
+}
+
+.aiGrid article {
+  min-height: 410px;
+  padding: 28px;
+  background: var(--canvas-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+}
+
+.aiCardTop > span {
+  color: var(--project-accent-ink);
+  background: var(--project-accent);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.aiCardTop h3 {
+  margin-top: 44px;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+}
+
+.aiGrid dl {
+  display: grid;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.aiGrid dl div {
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.aiGrid dt {
+  color: var(--project-accent-ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.aiGrid dd {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
 .troubleSection {
   color: #f7f2e8;
   background: var(--ink);
@@ -584,8 +684,16 @@
     grid-template-columns: 1fr;
   }
 
+  .aiGrid {
+    grid-template-columns: 1fr;
+  }
+
   .buildGrid article {
     min-height: 250px;
+  }
+
+  .aiGrid article {
+    min-height: auto;
   }
 
   .buildGrid h3 {
@@ -636,6 +744,10 @@
 
   .featureList li {
     min-height: 190px;
+  }
+
+  .aiIntro {
+    grid-template-columns: 1fr;
   }
 
   .troubleList dl div {

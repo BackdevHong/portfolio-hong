@@ -46,6 +46,15 @@ export type Project = {
     solution: string;
     result: string;
   }[];
+  aiUsage?: {
+    tool: string;
+    summary: string;
+    cases: {
+      title: string;
+      contribution: string;
+      validation: string;
+    }[];
+  };
 };
 
 export const projects: Project[] = [
@@ -98,6 +107,34 @@ export const projects: Project[] = [
           "Vast.ai에서 동작하는 의료 LLM 5종을 공통 런타임으로 연결하고 Cloud Run, Neon PostgreSQL·pgvector, Cloudflare R2와 메일·도메인 구성을 운영 환경에 맞췄습니다.",
       },
     ],
+    aiUsage: {
+      tool: "OpenAI Codex",
+      summary:
+        "Codex를 페어 프로그래밍 파트너로 활용해 로그·코드·테스트 결과를 함께 분석하고 구현 후보를 좁혔습니다. 제안된 내용은 직접 코드와 운영 환경에서 검증한 뒤 반영했습니다.",
+      cases: [
+        {
+          title: "문제 원인 탐색",
+          contribution:
+            "OCR 작업의 404·만료 현상에서 요청 흐름과 상태 저장 위치를 함께 추적해, Cloud Run 인스턴스마다 분리된 메모리 저장소를 핵심 가설로 좁혔습니다.",
+          validation:
+            "인스턴스가 달라지는 조건과 프로세스 재시작을 재현하고, 공용 DB 저장소로 전환한 뒤 관련 테스트 65건을 통과시켜 원인과 해결책을 확인했습니다.",
+        },
+        {
+          title: "설계와 엣지 케이스 검토",
+          contribution:
+            "대용량 R2 멀티파트 업로드와 후속 질문 문맥 연결을 구현할 때 실패 경로, 데이터 무결성, 오래된 대화가 섞이는 조건을 검토하는 데 활용했습니다.",
+          validation:
+            "파트 순서·ETag·실제 파일 크기와 대화 이력 선택 규칙을 테스트하고, 기존 기능의 회귀 여부를 확인한 뒤 변경 사항을 반영했습니다.",
+        },
+        {
+          title: "변경 사항 정리와 회귀 검증",
+          contribution:
+            "커밋과 테스트 결과를 기준으로 변경 범위를 요약하고, 문제·해결·결과가 드러나도록 기술 문서와 케이스 스터디 초안을 다듬었습니다.",
+          validation:
+            "최종 범위와 표현은 직접 결정했으며, 저장소의 구현 코드·자동화 테스트·배포된 서비스 동작을 근거로 내용을 교차 확인했습니다.",
+        },
+      ],
+    },
     troubleshooting: [
       {
         title: "자동 확장 환경에서 OCR 작업이 사라지는 문제",

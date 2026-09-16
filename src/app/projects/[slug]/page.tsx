@@ -231,12 +231,52 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
+        {project.aiUsage ? (
+          <section
+            className={`${styles.contentSection} ${styles.aiSection}`}
+            aria-labelledby="ai-usage-title"
+          >
+            <div className={styles.sectionLabel}>
+              <span>03</span>
+              <p>Generative AI</p>
+            </div>
+            <div className={styles.sectionContent}>
+              <p className={styles.sectionKicker}>AI-assisted development</p>
+              <h2 id="ai-usage-title">생성형 AI를 어떻게 활용했나요?</h2>
+              <div className={styles.aiIntro}>
+                <span>{project.aiUsage.tool}</span>
+                <p>{project.aiUsage.summary}</p>
+              </div>
+              <div className={styles.aiGrid}>
+                {project.aiUsage.cases.map((item, index) => (
+                  <article key={item.title}>
+                    <div className={styles.aiCardTop}>
+                      <span>Use {String(index + 1).padStart(2, "0")}</span>
+                      <h3>{item.title}</h3>
+                    </div>
+                    <dl>
+                      <div>
+                        <dt>활용</dt>
+                        <dd>{item.contribution}</dd>
+                      </div>
+                      <div>
+                        <dt>검증</dt>
+                        <dd>{item.validation}</dd>
+                      </div>
+                    </dl>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section
           className={`${styles.contentSection} ${styles.troubleSection}`}
           aria-labelledby="troubleshooting-title"
         >
           <div className={styles.sectionLabel}>
-            <span>03</span>
+            <span>{project.aiUsage ? "04" : "03"}</span>
             <p>Troubleshooting</p>
           </div>
           <div className={styles.sectionContent}>
