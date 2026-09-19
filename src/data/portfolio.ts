@@ -1,24 +1,24 @@
 export const profile = {
   name: "홍인성",
-  role: "Backend-focused Web Developer",
+  role: "Full-stack Web Developer",
   email: "ghddls0704@kakao.com",
   github: "https://github.com/BackdevHong",
   resume: "/resume/hong-inseong-resume.pdf",
-  heroTitle: "운영 환경의 문제를 끝까지 좁혀 해결하는 백엔드 중심 웹 개발자",
+  heroTitle: "사용자 흐름부터 API·데이터·운영까지 연결하는 풀스택 웹 개발자",
   heroDescription:
-    "약 1년 6개월의 제조 데이터 실무에서 Python 자동화를 경험했고, FastAPI·Node.js 서비스에서 인증·결제·RAG·Cloud 인프라까지 구현했습니다. 기능 나열보다 문제를 발견하고 검증 가능한 결과로 바꾼 과정을 보여드립니다.",
+    "약 1년 6개월의 제조 데이터 실무를 바탕으로 React·Next.js 프론트엔드와 FastAPI·Node.js 백엔드, 인증·결제·RAG·Cloud 운영까지 연결했습니다. 화면과 API를 따로 보지 않고 사용자와 데이터가 이동하는 전체 흐름을 설계합니다.",
 };
 
 export const metrics = [
   { label: "현업 데이터 경험", value: "1Y 6M" },
-  { label: "주요 백엔드", value: "FastAPI" },
+  { label: "Frontend · Backend", value: "Full-stack" },
   { label: "서비스 운영", value: "Cloud" },
 ];
 
 export const experience = [
   {
     company: "㈜연합시스템",
-    team: "IT · 도제학생(인턴)",
+    team: "IT · 도제학생(사원)",
     period: "2021.08 — 2023.01",
     duration: "1Y 6M",
     summary:

@@ -12,14 +12,14 @@ export function HeroSection({ styles }: HeroSectionProps) {
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroTopline}>
         <p>Selected works · 2022—2026</p>
-        <p>Seoul, Korea · Backend &amp; AI</p>
+        <p>Seoul, Korea · Full-stack &amp; AI</p>
       </div>
 
       <div className={styles.heroStage}>
         <div className={styles.heroIntro}>
           <p className={styles.eyebrow}>Hong Inseong · Developer Portfolio</p>
           <h1 id="hero-title">
-            <span>BACKEND / WEB</span>
+            <span>FULL-STACK / WEB</span>
             <span>DEVELOPER<i>.</i></span>
           </h1>
           <p className={styles.heroMission}>{profile.heroTitle}</p>
@@ -48,11 +48,11 @@ export function HeroSection({ styles }: HeroSectionProps) {
               alt="홍인성 프로필 사진"
               priority
             />
-            <span>BACKEND / AI</span>
+            <span>FULL-STACK</span>
           </div>
           <div className={styles.identityCaption}>
-            <p>Backend-focused web developer</p>
-            <strong>운영에서 드러난 문제를 코드와 테스트로 해결합니다.</strong>
+            <p>Full-stack web developer</p>
+            <strong>사용자 흐름부터 데이터와 운영까지 하나로 연결합니다.</strong>
           </div>
         </aside>
       </div>
@@ -66,7 +66,7 @@ export function HeroSection({ styles }: HeroSectionProps) {
             </div>
           ))}
         </div>
-        <p>FastAPI · Node.js · React · PostgreSQL</p>
+        <p>React · TypeScript · FastAPI · Node.js</p>
       </div>
     </section>
   );

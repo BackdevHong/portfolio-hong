@@ -181,7 +181,7 @@ def draw_footer(canvas, doc) -> None:
     canvas.line(22 * mm, 14 * mm, A4[0] - 22 * mm, 14 * mm)
     canvas.setFont("NeoMedium", 7.5)
     canvas.setFillColor(MUTED)
-    canvas.drawString(22 * mm, 9 * mm, "HONG INSEONG · BACKEND-FOCUSED WEB DEVELOPER")
+    canvas.drawString(22 * mm, 9 * mm, "HONG INSEONG · FULL-STACK WEB DEVELOPER")
     canvas.drawRightString(A4[0] - 22 * mm, 9 * mm, f"{doc.page} / 2")
     canvas.restoreState()
 
@@ -199,7 +199,7 @@ def build_story():
     header_left = [
         p("홍인성", NAME),
         Spacer(1, 3 * mm),
-        p("Backend-focused Web Developer", ROLE),
+        p("Full-stack Web Developer", ROLE),
         Spacer(1, 3.2 * mm),
         p(contact, CONTACT),
     ]
@@ -221,13 +221,13 @@ def build_story():
         [
             [
                 [
-                    p("운영 문제를 끝까지 좁혀 해결하는 개발자", INTRO_TITLE),
+                    p("사용자 흐름부터 데이터·운영까지 연결하는 풀스택 개발자", INTRO_TITLE),
                     Spacer(1, 2.5 * mm),
                     p(
-                        "약 1년 6개월의 제조 데이터 실무에서 Python 자동화를 경험했고, "
-                        "FastAPI·Node.js 서비스에서 인증·결제·RAG·Cloud 인프라까지 구현했습니다. "
-                        "Cloud Run 상태 유실과 대용량 업로드 제약처럼 운영에서 드러난 문제를 재현하고 "
-                        "코드와 테스트로 해결하는 데 강점이 있습니다.",
+                        "약 1년 6개월의 제조 데이터 실무를 바탕으로 React·Next.js 프론트엔드와 "
+                        "FastAPI·Node.js 백엔드, 인증·결제·RAG·Cloud 인프라까지 구현했습니다. "
+                        "화면과 API를 따로 보지 않고 사용자와 데이터가 이동하는 전체 흐름을 설계하며, "
+                        "운영에서 드러난 문제는 재현과 테스트를 통해 해결합니다.",
                         INTRO_BODY,
                     ),
                 ]
@@ -253,7 +253,7 @@ def build_story():
         [
             section_heading("Professional Experience"),
             Spacer(1, 5 * mm),
-            item_header("㈜연합시스템 · IT 도제학생(인턴)", "2021.08 - 2023.01", "약 1년 6개월"),
+            item_header("㈜연합시스템 · IT 도제학생(사원)", "2021.08 - 2023.01", "약 1년 6개월"),
             Spacer(1, 2 * mm),
             p("제조 공정 데이터 검토·정제 및 Python 데이터 처리 자동화", ITEM_SUMMARY),
             Spacer(1, 3 * mm),
@@ -384,7 +384,7 @@ def build_story():
 
     education = Table(
         [
-            [p("가천대학교", ITEM_SUMMARY), p("조기취업형 계약학과 게임·영상학과 · 재학", COMPACT), p("2023.03 - 2028.03 예정", SMALL)],
+            [p("가천대학교", ITEM_SUMMARY), p("게임·영상학과 · 재학", COMPACT), p("2023.03 - 2028.03 예정", SMALL)],
             [p("글로벌아카데미", ITEM_SUMMARY), p("생성형 AI 기반 문서인식·분류 자동화 시스템 개발", COMPACT), p("2026.07 - 2026.09", SMALL)],
             [p("자격", ITEM_SUMMARY), p("SW개발_L3_20V1 · 웹디자인개발기능사", COMPACT), p("한국산업인력공단", SMALL)],
         ],
@@ -421,7 +421,7 @@ def main() -> None:
         bottomMargin=19 * mm,
         title="홍인성 이력서",
         author="홍인성",
-        subject="Backend-focused Web Developer Resume",
+        subject="Full-stack Web Developer Resume",
     )
     doc.build(build_story(), onFirstPage=draw_footer, onLaterPages=draw_footer)
     PUBLIC_RESUME.parent.mkdir(parents=True, exist_ok=True)
