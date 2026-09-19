@@ -1,4 +1,5 @@
 import { ContactSection } from "@/components/sections/ContactSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
@@ -10,6 +11,7 @@ export default function Home() {
       <Header styles={styles} />
       <main id="top">
         <HeroSection styles={styles} />
+        <ExperienceSection styles={styles} />
         <ProjectsSection styles={styles} />
         <ContactSection styles={styles} />
       </main>

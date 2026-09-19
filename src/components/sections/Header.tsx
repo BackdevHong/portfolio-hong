@@ -1,4 +1,5 @@
 import { profile } from "@/data/portfolio";
+import { withBasePath } from "@/lib/site-url";
 import type { SectionStyles } from "./types";
 
 type HeaderProps = {
@@ -14,10 +15,13 @@ export function Header({ styles }: HeaderProps) {
       </a>
       <nav className={styles.nav} aria-label="주요 메뉴">
         <a href="#projects">01. Work</a>
-        <a href={profile.github} target="_blank" rel="noreferrer">
-          02. GitHub <span aria-hidden="true">↗</span>
+        <a href={withBasePath(profile.resume)} target="_blank" rel="noreferrer">
+          02. Resume <span aria-hidden="true">↗</span>
         </a>
-        <a href="#contact">03. Contact</a>
+        <a href={profile.github} target="_blank" rel="noreferrer">
+          03. GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <a href="#contact">04. Contact</a>
       </nav>
     </header>
   );

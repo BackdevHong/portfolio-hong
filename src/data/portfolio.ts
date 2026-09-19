@@ -1,17 +1,35 @@
 export const profile = {
   name: "홍인성",
-  role: "Web Developer",
+  role: "Backend-focused Web Developer",
   email: "ghddls0704@kakao.com",
   github: "https://github.com/BackdevHong",
-  heroTitle: "사용자가 실제로 쓰는 웹 서비스를 만듭니다.",
+  resume: "/resume/hong-inseong-resume.pdf",
+  heroTitle: "운영 환경의 문제를 끝까지 좁혀 해결하는 백엔드 중심 웹 개발자",
   heroDescription:
-    "React를 중심으로 화면을 설계하고, Python과 데이터베이스를 활용한 업무 자동화와 데이터 처리도 경험했습니다. 아래 프로젝트를 누르면 구현 과정과 문제를 해결한 방법을 자세히 볼 수 있습니다.",
+    "약 1년 6개월의 제조 데이터 실무에서 Python 자동화를 경험했고, FastAPI·Node.js 서비스에서 인증·결제·RAG·Cloud 인프라까지 구현했습니다. 기능 나열보다 문제를 발견하고 검증 가능한 결과로 바꾼 과정을 보여드립니다.",
 };
 
 export const metrics = [
-  { label: "선별한 프로젝트", value: "05" },
-  { label: "주요 프론트엔드", value: "React" },
-  { label: "관심 영역", value: "Web" },
+  { label: "현업 데이터 경험", value: "1Y 6M" },
+  { label: "주요 백엔드", value: "FastAPI" },
+  { label: "서비스 운영", value: "Cloud" },
+];
+
+export const experience = [
+  {
+    company: "㈜연합시스템",
+    team: "IT · 도제학생(인턴)",
+    period: "2021.08 — 2023.01",
+    duration: "1Y 6M",
+    summary:
+      "제조 공정 데이터를 검토·정제하고 반복 처리 과정을 Python으로 자동화했습니다.",
+    highlights: [
+      "MySQL 공정 이력의 이상 데이터를 확인하고 현업 담당자와 업무 기준·예외 상황을 리뷰",
+      "반복적인 데이터 전처리를 Python·Pandas 로직으로 전환해 재사용 가능한 처리 흐름 구축",
+      "lot별 공정 이력과 근무·휴게 시간을 결합한 완료 시간 예측 도구로 조회부터 결과 출력까지 연결",
+    ],
+    tags: ["Python", "Pandas", "MySQL", "Data Automation"],
+  },
 ];
 
 export type Project = {
@@ -67,9 +85,9 @@ export const projects: Project[] = [
     period: "2026.08 — 2026.09",
     role: "Full-stack · AI/RAG · Infrastructure (Team)",
     description:
-      "React와 FastAPI로 구축한 의료 AI 상담 서비스입니다. 문서 OCR·청킹, Jina v4와 Medical BGE-M3의 이중 검색 및 RRF 결합, 의료 LLM 5종 비교·상담, 인증과 관리자 운영 흐름을 구현했습니다.",
+      "Cloud Run 인스턴스마다 OCR 작업이 사라지던 문제를 공용 DB 상태 저장으로 해결하고, R2 직접 멀티파트 업로드로 최대 8GB 파일을 처리했습니다. Jina v4·Medical BGE-M3 검색 결과는 RRF로 결합했습니다.",
     summary:
-      "의료 문서 수집부터 하이브리드 RAG와 다중 LLM 추론까지 연결한 의료 AI 상담 서비스",
+      "다중 인스턴스 상태 유실과 대용량 업로드 한계를 해결한 의료 RAG 서비스",
     sourceNote:
       "팀 프로젝트로 진행했으며 조직의 비공개 저장소에서 관리되어 소스 코드는 공개하지 않습니다.",
     liveUrl: "https://medisense.ai.kr",
@@ -174,8 +192,8 @@ export const projects: Project[] = [
     period: "2026",
     role: "Frontend · Backend",
     description:
-      "프리랜서와 클라이언트를 연결하는 서비스 중개 플랫폼입니다. 서비스 탐색부터 제안, 주문, 채팅, 관리자 운영까지 실제 서비스 흐름을 구현했습니다.",
-    summary: "복잡한 역할과 거래 흐름을 하나의 서비스로 연결한 풀스택 프로젝트",
+      "클라이언트·프리랜서·관리자의 권한과 제안·주문·결제·정산 상태를 하나의 거래 흐름으로 설계했습니다. 서버 금액 재검증과 Prisma Transaction을 적용해 2단계 결제 과정의 데이터 일관성을 확보했습니다.",
+    summary: "권한·결제·정산 상태를 연결해 거래 무결성을 확보한 중개 플랫폼",
     repository: "https://github.com/BackdevHong/crunch",
     liveUrl: "https://crunch-project-demo.ghddls7979.chatgpt.site",
     accent: "#ff6847",

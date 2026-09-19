@@ -16,14 +16,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "홍인성 | Web Developer",
+    default: "홍인성 | Backend-focused Web Developer",
     template: "%s | 홍인성 포트폴리오",
   },
   description:
-    "React 웹 서비스와 Python·MySQL 데이터 프로젝트의 구현 과정과 트러블슈팅을 정리한 홍인성의 포트폴리오입니다.",
+    "FastAPI·Node.js 기반 웹 서비스와 Python 데이터 자동화, 의료 RAG 프로젝트의 문제 해결 과정을 정리한 홍인성의 포트폴리오입니다.",
   openGraph: {
-    title: "홍인성 | Web Developer",
-    description: "웹과 데이터 프로젝트를 만들고, 해결 과정을 기록합니다.",
+    title: "홍인성 | Backend-focused Web Developer",
+    description: "운영 환경의 문제를 코드와 테스트로 해결한 과정을 기록합니다.",
     type: "website",
     locale: "ko_KR",
     images: [
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "홍인성 | Web Developer",
-    description: "웹과 데이터 프로젝트를 만들고, 해결 과정을 기록합니다.",
+    title: "홍인성 | Backend-focused Web Developer",
+    description: "운영 환경의 문제를 코드와 테스트로 해결한 과정을 기록합니다.",
     images: [absoluteSiteUrl("/og.png")],
   },
 };
