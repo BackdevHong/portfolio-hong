@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Black, Noto_Sans_KR } from "next/font/google";
 import { absoluteSiteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSansKr = Noto_Sans_KR({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const archivoBlack = Archivo_Black({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${notoSansKr.variable} ${archivoBlack.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

@@ -1,18 +1,16 @@
 :root {
-  --canvas: #f2f0e9;
-  --canvas-strong: #fffdf7;
-  --ink: #11120f;
-  --muted: #676960;
-  --line: #d8d5cc;
-  --line-strong: #9c9b94;
-  --grid-line: rgba(17, 18, 15, 0.055);
-  --accent: #ff5b3a;
-  --soft-accent: #ffc9bb;
-  --teal: #0b504a;
-  --blue: #3157ff;
-  --lime: #c7f65b;
-  --yellow: #f6c84d;
-  --page-x: clamp(20px, 5.6vw, 88px);
+  --cloud: #f4f7fb;
+  --white: #ffffff;
+  --ink: #14213d;
+  --muted: #59677d;
+  --mist: #dce6f2;
+  --mist-strong: #c4d2e3;
+  --cobalt: #2457ff;
+  --cobalt-dark: #1536ae;
+  --signal: #ff5a48;
+  --sky: #bcd8ff;
+  --page-x: clamp(20px, 5vw, 76px);
+  --content-max: 1440px;
 }
 
 html {
@@ -31,8 +29,8 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--ink);
-  background: var(--canvas);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--cloud);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -56,11 +54,11 @@ select {
 }
 
 ::selection {
-  color: var(--canvas-strong);
-  background: var(--accent);
+  color: var(--white);
+  background: var(--cobalt);
 }
 
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--signal);
   outline-offset: 4px;
 }

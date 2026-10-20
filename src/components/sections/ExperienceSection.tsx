@@ -9,13 +9,11 @@ export function ExperienceSection({ styles }: ExperienceSectionProps) {
   return (
     <section id="experience" className={styles.experience}>
       <div className={styles.experienceIntro}>
-        <p className={styles.eyebrow}>Professional experience · 01</p>
-        <h2>
-          WORK <span>/ EXPERIENCE</span>
-        </h2>
+        <p className={styles.eyebrow}>Professional experience</p>
+        <h2>현업에서 배운 것은<br />데이터의 맥락입니다.</h2>
         <p>
-          사이드 프로젝트보다 앞서, 실제 업무에서 데이터를 다루고 반복 작업을
-          자동화한 경험부터 소개합니다.
+          실제 제조 데이터를 다루며 예외를 발견하고, 담당자와 기준을 맞추고,
+          반복되는 판단을 자동화하는 흐름을 익혔습니다.
         </p>
       </div>
 
@@ -33,7 +31,7 @@ export function ExperienceSection({ styles }: ExperienceSectionProps) {
               <ol>
                 {item.highlights.map((highlight, index) => (
                   <li key={highlight}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <span aria-hidden="true">{index + 1}</span>
                     {highlight}
                   </li>
                 ))}

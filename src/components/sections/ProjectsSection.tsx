@@ -14,28 +14,23 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
     <section id="projects" className={styles.projects}>
       <div className={styles.sectionHeading}>
         <div>
-          <p className={styles.eyebrow}>
-            Selected work · {projects.length.toString().padStart(2, "0")} case studies
-          </p>
-          <h2>
-            PROJECT <span>/ INDEX</span>
-          </h2>
+          <p className={styles.eyebrow}>Selected work</p>
+          <h2>문제를 해결해<br />제품으로 남긴 작업들</h2>
         </div>
         <p>
-          결과 화면만 보여주지 않습니다. 어떤 문제를 발견했고, 어떻게 구현했으며,
-          무엇을 해결했는지 프로젝트별 흐름으로 정리했습니다.
+          결과 화면보다 그 뒤의 판단을 보여드립니다. 발견한 문제, 구현 과정,
+          운영에서 확인한 결과를 프로젝트별로 기록했습니다.
         </p>
       </div>
 
       <div className={styles.projectGrid}>
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <Link
             className={styles.projectCard}
             href={`/projects/${project.slug}`}
             key={project.slug}
             style={
               {
-                "--index": index,
                 "--project-accent": project.accent,
                 "--project-ink": project.accentInk,
               } as CSSProperties
@@ -44,7 +39,7 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
           >
             <div className={styles.projectInfo}>
               <div className={styles.projectMeta}>
-                <span>Project / {project.index}</span>
+                <span>{project.period}</span>
                 <span>{project.category}</span>
               </div>
               <div className={styles.projectBody}>
@@ -59,47 +54,33 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
                 ))}
               </ul>
               <span className={styles.cardLink}>
-                Case study 열기 <span aria-hidden="true">↗</span>
+                케이스 스터디 읽기 <span aria-hidden="true">+</span>
               </span>
             </div>
 
-            <div className={styles.projectVisual} aria-hidden="true">
-              <div className={styles.visualTopline}>
-                <span>HONG INSEONG / PORTFOLIO</span>
-                <span>{project.period}</span>
+            <div className={styles.projectVisual}>
+              <div className={styles.visualTopline} aria-hidden="true">
+                <span>Case {project.index}</span>
+                <span>{project.tags[0]}</span>
               </div>
-              <strong className={styles.visualTitle}>{project.displayTitle}</strong>
               {project.screenshots?.[0] ? (
                 <div className={styles.visualScreenshot}>
-                  <div>
-                    <span>Built project</span>
-                    <span>Actual screen / 01</span>
-                  </div>
                   <Image
                     src={withBasePath(project.screenshots[0].src)}
-                    alt=""
+                    alt={project.screenshots[0].alt}
                     width={1280}
                     height={720}
                   />
                 </div>
               ) : (
                 <div className={styles.visualPanel}>
-                  <div>
-                    <span>Core</span>
-                    <strong>{project.features.length.toString().padStart(2, "0")}</strong>
-                    <small>Features</small>
-                  </div>
-                  <div>
-                    <span>Solve</span>
-                    <strong>{project.troubleshooting.length.toString().padStart(2, "0")}</strong>
-                    <small>Cases</small>
-                  </div>
-                  <p>{project.tags.slice(0, 3).join(" / ")}</p>
+                  <strong className={styles.visualTitle}>{project.displayTitle}</strong>
+                  <p>{project.summary}</p>
                 </div>
               )}
-              <div className={styles.visualFooter}>
-                <span>{project.category}</span>
-                <span>View project ↗</span>
+              <div className={styles.visualFooter} aria-hidden="true">
+                <span>{project.title}</span>
+                <span>Open case study</span>
               </div>
             </div>
           </Link>
