@@ -83,7 +83,7 @@ export function HeroSection({ styles }: HeroSectionProps) {
             </div>
             <p>
               <strong>홍인성</strong>
-              오류가 나면 같은 상황부터 다시 만듭니다. 로그를 보고, 배포 뒤까지 확인합니다.
+              오류가 나면 같은 상황부터 다시 만듭니다. 로그를 보고 배포 뒤까지 확인합니다.
             </p>
           </div>
         </aside>
