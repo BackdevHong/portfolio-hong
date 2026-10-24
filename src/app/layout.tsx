@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Noto_Sans_KR } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans_KR } from "next/font/google";
 import { absoluteSiteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const notoSansKr = Noto_Sans_KR({
+const plexSansKr = IBM_Plex_Sans_KR({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const archivoBlack = Archivo_Black({
-  variable: "--font-display",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-code",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${notoSansKr.variable} ${archivoBlack.variable}`}
+      className={`${plexSansKr.variable} ${plexMono.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

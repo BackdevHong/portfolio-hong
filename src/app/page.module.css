@@ -32,7 +32,7 @@
   color: var(--white);
   background: var(--cobalt);
   border-radius: 50%;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 14px;
 }
 
@@ -40,7 +40,7 @@
   display: grid;
   gap: 1px;
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 700;
   line-height: 1.25;
 }
 
@@ -61,7 +61,7 @@
   padding: 10px 0;
   color: var(--muted);
   font-size: 12px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .nav a::after {
@@ -105,6 +105,7 @@
   color: var(--muted);
   border-bottom: 1px solid var(--mist-strong);
   font-size: 11px;
+  font-family: var(--font-code), monospace;
   font-weight: 600;
 }
 
@@ -139,7 +140,7 @@
 .eyebrow {
   color: var(--cobalt);
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .hero h1 {
@@ -147,9 +148,9 @@
   gap: 2px;
   margin-top: 25px;
   font-size: clamp(48px, 5.5vw, 86px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.02;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
   word-break: keep-all;
 }
 
@@ -188,7 +189,7 @@
   border: 1px solid var(--ink);
   border-radius: 999px;
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 700;
   transition: transform 170ms ease, color 170ms ease, background 170ms ease;
 }
 
@@ -257,7 +258,8 @@
 .traceHeader span {
   color: var(--sky);
   font-size: 11px;
-  font-weight: 650;
+  font-family: var(--font-code), monospace;
+  font-weight: 600;
 }
 
 .traceFlow {
@@ -316,13 +318,14 @@
   color: var(--white);
   background: var(--signal);
   border-radius: 50%;
+  font-family: var(--font-code), monospace;
   font-size: 8px;
-  font-weight: 750;
+  font-weight: 700;
   transform: translateX(-50%);
 }
 
 .traceNode strong {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(12px, 1.1vw, 17px);
   white-space: nowrap;
 }
@@ -330,7 +333,7 @@
 .traceNode small {
   margin-top: 6px;
   font-size: 9px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .traceFooter {
@@ -397,17 +400,18 @@
 }
 
 .metricList strong {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.025em;
 }
 
 .metricList span,
 .heroRail > p {
   color: var(--muted);
+  font-family: var(--font-code), monospace;
   font-size: 10px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .experience {
@@ -438,9 +442,9 @@
 .contactIntro h2 {
   margin-top: 22px;
   font-size: clamp(38px, 4.4vw, 66px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.08;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   word-break: keep-all;
 }
 
@@ -464,13 +468,14 @@
   gap: 16px;
   padding: 20px 0;
   color: var(--sky);
+  font-family: var(--font-code), monospace;
   font-size: 12px;
 }
 
 .experienceMeta strong {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .experienceBody > p {
@@ -482,7 +487,7 @@
 .experienceBody h3 {
   margin-top: 12px;
   font-size: clamp(34px, 4vw, 58px);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 .experienceBody > strong {
@@ -521,7 +526,7 @@
   background: var(--sky);
   border-radius: 50%;
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .experienceBody > ul,
@@ -542,7 +547,7 @@
   border: 1px solid rgba(188, 216, 255, 0.45);
   border-radius: 999px;
   font-size: 10px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .projects {
@@ -605,8 +610,9 @@
   flex-wrap: wrap;
   gap: 10px 18px;
   color: var(--muted);
+  font-family: var(--font-code), monospace;
   font-size: 11px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .projectMeta span + span::before {
@@ -624,11 +630,11 @@
 
 .projectBody h3 {
   margin-top: 10px;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(45px, 5.8vw, 86px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.96;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.035em;
   overflow-wrap: anywhere;
 }
 
@@ -658,8 +664,9 @@
 
 .tagList li {
   color: var(--muted);
+  font-family: var(--font-code), monospace;
   font-size: 10px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .tagList li:not(:last-child)::after {
@@ -675,7 +682,7 @@
   margin-top: 32px;
   color: var(--cobalt);
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .cardLink span {
@@ -721,8 +728,9 @@
   justify-content: space-between;
   gap: 20px;
   color: var(--project-ink);
+  font-family: var(--font-code), monospace;
   font-size: 9px;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .visualScreenshot {
@@ -758,11 +766,11 @@
 .visualTitle {
   max-width: 650px;
   color: var(--project-ink);
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(56px, 7vw, 104px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.86;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.04em;
   overflow-wrap: anywhere;
 }
 
@@ -811,7 +819,7 @@
   padding: 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.36);
   font-size: 15px;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .contactLinks a span {
@@ -829,6 +837,7 @@
   grid-column: 1 / -1;
   margin-top: 70px;
   color: #b9caff;
+  font-family: var(--font-code), monospace;
   font-size: 10px;
 }
 
