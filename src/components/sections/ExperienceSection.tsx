@@ -10,10 +10,10 @@ export function ExperienceSection({ styles }: ExperienceSectionProps) {
     <section id="experience" className={styles.experience}>
       <div className={styles.experienceIntro}>
         <p className={styles.eyebrow}>Professional experience</p>
-        <h2>현업에서 배운 것은<br />데이터의 맥락입니다.</h2>
+        <h2>공정 데이터 한 줄에도<br />현장 사정이 있었습니다.</h2>
         <p>
-          실제 제조 데이터를 다루며 예외를 발견하고, 담당자와 기준을 맞추고,
-          반복되는 판단을 자동화하는 흐름을 익혔습니다.
+          공정 데이터가 이상해 보여도 바로 지우면 안 됐습니다. 담당자에게 이유를
+          묻고 기준부터 맞춘 뒤, 자주 반복되는 정리 작업은 Python으로 옮겼습니다.
         </p>
       </div>
 

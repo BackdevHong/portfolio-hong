@@ -15,11 +15,11 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
       <div className={styles.sectionHeading}>
         <div>
           <p className={styles.eyebrow}>Selected work</p>
-          <h2>문제를 해결해<br />제품으로 남긴 작업들</h2>
+          <h2>만들다 막혔던 지점과<br />풀어낸 방법을 모았습니다.</h2>
         </div>
         <p>
-          결과 화면보다 그 뒤의 판단을 보여드립니다. 발견한 문제, 구현 과정,
-          운영에서 확인한 결과를 프로젝트별로 기록했습니다.
+          완성 화면만 보면 보이지 않는 일이 많았습니다. 왜 401이 반복됐는지,
+          8GB 파일을 어떻게 올렸는지, 공정 시간이 왜 어긋났는지까지 적었습니다.
         </p>
       </div>
 
@@ -54,7 +54,7 @@ export function ProjectsSection({ styles }: ProjectsSectionProps) {
                 ))}
               </ul>
               <span className={styles.cardLink}>
-                케이스 스터디 읽기 <span aria-hidden="true">+</span>
+                만든 과정 보기 <span aria-hidden="true">+</span>
               </span>
             </div>
 

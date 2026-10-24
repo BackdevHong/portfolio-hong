@@ -10,8 +10,8 @@ export function ContactSection({ styles }: ContactSectionProps) {
     <footer id="contact" className={styles.contact}>
       <div className={styles.contactIntro}>
         <p className={styles.eyebrow}>Contact</p>
-        <h2>같이 만들 프로젝트가 있다면,<br />편하게 이야기해주세요.</h2>
-        <p>사용자와 기술 사이를 연결하는 풀스택 개발자로 함께하겠습니다.</p>
+        <h2>화면도, 서버도 함께 볼 사람이 필요하다면<br />편하게 연락 주세요.</h2>
+        <p>맡은 기능이 배포된 뒤 제대로 도는지까지 챙깁니다.</p>
       </div>
       <div className={styles.contactLinks}>
         <a href={`mailto:${profile.email}`}>

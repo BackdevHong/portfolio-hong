@@ -165,7 +165,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
             <div className={styles.sectionContent}>
               <p className={styles.sectionKicker}>Built &amp; captured</p>
-              <h2 id="screen-title">직접 실행한 프로젝트 화면</h2>
+              <h2 id="screen-title">직접 실행해 캡처한 화면</h2>
               <div className={styles.screenGallery}>
                 {project.screenshots.map((screenshot) => (
                   <figure key={screenshot.src}>
@@ -199,7 +199,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <div className={styles.sectionContent}>
             <p className={styles.sectionKicker}>What I built</p>
-            <h2 id="features-title">무엇을 만들었나요?</h2>
+            <h2 id="features-title">이 프로젝트에서 만든 것</h2>
             <ul className={styles.featureList}>
               {project.features.map((feature, index) => (
                 <li key={feature}>
@@ -218,7 +218,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <div className={styles.sectionContent}>
             <p className={styles.sectionKicker}>Implementation</p>
-            <h2 id="implementation-title">어떻게 구현했나요?</h2>
+            <h2 id="implementation-title">구현할 때 가장 신경 쓴 부분</h2>
             <div className={styles.buildGrid}>
               {project.buildPoints.map((point, index) => (
                 <article key={point.title}>
@@ -242,7 +242,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
             <div className={styles.sectionContent}>
               <p className={styles.sectionKicker}>AI-assisted development</p>
-              <h2 id="ai-usage-title">생성형 AI를 어떻게 활용했나요?</h2>
+              <h2 id="ai-usage-title">Codex를 어디에 썼나</h2>
               <div className={styles.aiIntro}>
                 <span>{project.aiUsage.tool}</span>
                 <p>{project.aiUsage.summary}</p>
@@ -281,7 +281,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <div className={styles.sectionContent}>
             <p className={styles.sectionKicker}>Troubleshooting</p>
-            <h2 id="troubleshooting-title">문제를 어떻게 해결했나요?</h2>
+            <h2 id="troubleshooting-title">막혔던 지점과 해결 과정</h2>
             <div className={styles.troubleList}>
               {project.troubleshooting.map((item, index) => (
                 <article key={item.title}>

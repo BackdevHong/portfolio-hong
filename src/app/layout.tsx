@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     template: "%s | 홍인성 포트폴리오",
   },
   description:
-    "React·Next.js 프론트엔드부터 FastAPI·Node.js 백엔드, 데이터·Cloud 운영까지 연결한 홍인성의 풀스택 개발자 포트폴리오입니다.",
+    "React·Next.js로 화면을 만들고 FastAPI·Node.js로 API를 붙입니다. 제조 데이터 실무와 인증·결제·RAG·Cloud 운영 경험을 담은 홍인성의 포트폴리오입니다.",
   openGraph: {
     title: "홍인성 | Full-stack Web Developer",
-    description: "사용자 흐름부터 API·데이터·운영까지 연결한 문제 해결 과정을 기록합니다.",
+    description: "화면부터 API, 데이터, 배포까지 직접 부딪히며 해결한 과정을 담았습니다.",
     type: "website",
     locale: "ko_KR",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "홍인성 | Full-stack Web Developer",
-    description: "사용자 흐름부터 API·데이터·운영까지 연결한 문제 해결 과정을 기록합니다.",
+    description: "화면부터 API, 데이터, 배포까지 직접 부딪히며 해결한 과정을 담았습니다.",
     images: [absoluteSiteUrl("/og.png")],
   },
 };
